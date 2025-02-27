@@ -1,0 +1,61 @@
+/* Phần container chính của Box_Body_Conten */
+.Box_Body_Conten {
+    width: 95%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;    
+    overflow-y: auto;
+    max-height: 80vh;
+    background-color: rgb(230, 230, 230);
+}
+      
+
+/* Định dạng tiêu đề */
+.Box_Body_Conten h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Định dạng các Box */
+.Box {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    text-align: center;
+    flex: 1 1 calc(18% - 10px);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.Box h3 {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.Box p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Định dạng icon */
+.icon {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Định dạng từng Box cụ thể với màu sắc đậm hơn */
+.Box.revenue { background-color: #b3edff; }
+.Box.sales { background-color: #ffcace; }
+.Box.clients { background-color: #d1f9d8; }
+.Box.database { background-color: #e4c2ff; }
+.Box.users { background-color: #ffead1; }
+.Box.daily-sales { background-color: #d0ffb4; }
+.Box.total-profit { background-color: #e9ebf9; }

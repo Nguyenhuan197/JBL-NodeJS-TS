@@ -1,0 +1,120 @@
+@media (Max-Width: 8000px){
+           /* Search product */
+    .Search_Product {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 100000;
+        background-image: linear-gradient(to right top, #fba077, #fc9976, #fe9276, #fe8b77, #ff8478, #fe8589, #f9899a, #f38da8, #e29dbf, #d0accb, #c4b9cb, #c3c3c3);      
+        transition: background-image 1s;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        display: none;
+    }
+
+    
+    .Box_Arrow_Exit {
+        position: absolute;
+        width: 120px; height: 120px;
+        background-color: white;
+        border-radius: 50%;
+        transform: translate(-50%, 0%);
+        left: 50%; top: 5%;
+        transition: Background-color 1s;
+    }
+
+    .Box_Arrow_Exit svg {
+        position: absolute;
+        transform: translate(-50%,-50%);
+        left: 50%; top: 50%;
+        fill: 60px;
+        transition: fill 1s , transform 1s;
+    }
+
+    .Box_Arrow_Exit:hover svg{
+        fill: white;
+        transform: translate(-50%,-80%);
+        transition: fill 1s , transform 1s;
+    }
+
+    .Box_Arrow_Exit:hover {
+        background-color: black;
+        transition: Background-color 1s;
+    }
+
+
+    .Text_Search input {
+        position: absolute;
+        width: 600px; height: 60px;
+        border: 0px; margin: 0px;
+        margin: 0px; font-size: 30px;
+        transform: translate(-50%,0%);
+        left: 50%; top: 30%;
+        padding: 10px 24px;
+        padding-right: 140px;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .Text_Search input::placeholder {
+        font-size: 30px; color: black;
+        border: 0px;
+    }
+
+    .Text_Search input:focus {
+        border: none; outline: none;
+    }
+
+    .View_Search_Product {
+        position: absolute;
+        transform: translate(-50%);
+        left: 50%; top: 50%;
+        width: 90%; height: 40%;
+        padding: 20px;
+        background-color: white;
+        color: black;
+    }
+
+    .Not_Search {
+        position: absolute;
+        color: black;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        transform: translate(-50%, -50%);
+        left: 50%; top: 50%;
+        font-size: 30px;
+    }
+
+    .Box_Display_Product_Search {
+        position: relative;
+        width: 18.8%; height: 48%;
+        border: 0.1px solid rgb(224, 224, 224);
+        margin: 0% 0.5%; margin-bottom: 10px;
+        transition: transform 1s;
+        float: left; 
+    }
+
+    .Box_Display_Product_Search:hover {
+        transform: translate(-0px,-5px);
+        transition: transform 1s;
+    }
+
+    .img_Search img {
+        position: absolute;
+        width: 40%; height: 80%;
+        top: 10%;
+    }
+
+    .Text_Search_Product {
+        position: absolute;
+        width: 55%; height: 80%;
+        right: 2%; top: 10%;
+        font-size: 13px;
+
+        display: -webkit-box;          /* Sử dụng flexbox để tạo khung */
+        -webkit-box-orient: vertical;  /* Xếp khung theo chiều dọc */
+        overflow: hidden;              /* Ẩn phần văn bản thừa */
+        text-overflow: ellipsis;       /* Thêm dấu '...' nếu văn bản bị cắt */
+        -webkit-line-clamp: 8;         /* Hiển thị tối đa 3 dòng */
+        line-height: 1.5;              /* Chiều cao dòng */
+        max-height: calc(1.5em * 8);   /* Chiều cao tối đa cho 3 dòng */
+    }
+
+}

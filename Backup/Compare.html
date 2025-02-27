@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load ...</title>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <link rel="icon" href="data:image/png;base64,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" type="image/png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+        
+
+
+        <link rel="stylesheet" href="Public/CSS/Default/Features.css">
+        <link rel="stylesheet" href="../Public/CSS/Header.css">
+        <link rel="stylesheet" href="Client/Public/CSS/Default/Compare.css">
+        <link rel="stylesheet" href="../Public/CSS/Footer.css">
+
+    <style>
+ 
+        :root {
+            --Maunenchuyen :  rgb(255, 255, 255);
+            --Vanbanchuyen : black;
+            --vanbanchuyen2 : black;
+        }
+
+
+        .sticky {
+            position: fixed;
+            top: 0 ; width: 100%;
+            opacity: 1;
+            background-color: var(--Maunenchuyen);
+            transition: opacity 1s, background-color 1.4s;
+            z-index: 10;
+        }
+
+        .Load_dinh {
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+            width: 100%; height: 100%;
+            background-color: black;
+            opacity: 1;
+            transition: opacity 1s;
+            z-index: 1500;
+        }
+
+        .Load_ {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 120px; height: 120px;
+
+            border-radius: 50%;
+            border: 8px solid transparent;
+            border-top-color: white;
+            border-bottom-color: white;
+
+            transform: rotate(0deg);
+            animation: Load 0.7s linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes Load {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+       
+
+
+    </style>
+</head>
+
+
+
+
+
+
+ 
+
+
+<body> 
+    <!-- <section class="Load_dinh">
+        <nav class="Load_"></nav>
+    </section> -->
+
+    <section class="Main_">
+        <div class="Thanh_Top" id="Up_Top">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5m-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5"/>
+            </svg>
+        </div>
+
+        <div class="Thanh_Chat">Chat</div>
+
+        <section class="Video_Danhgia">
+            <svg onclick="Bovideo()" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg>
+            <iframe></iframe>
+        </section>
+
+        <section class="Thanh_Menu_Man_Hinh_Nho">
+            <nav class="Khung_Top_Danhmuc">
+                <span>Danh Mục</span>
+                <section class="Khung_Dieuhuong">
+                    <nav>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1z"/>
+                            <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                        </svg>
+                    </nav>
+
+                    <nav>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1z"/>
+                            <path fill-rule="evenodd" d="M7.646.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 1.707V10.5a.5.5 0 0 1-1 0V1.707L5.354 3.854a.5.5 0 1 1-.708-.708z"/>
+                        </svg>
+                    </nav>
+
+                    <nav>
+                        <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                        </svg>
+                    </nav>
+
+                </section>
+
+            </nav>
+
+            <nav class="Danhmuchinh_Thongtin">
+                <div class="sp1">Loa Nge Nhạc</div>
+                <div class="sp2">
+                    <div class="menucon">🏷️ Loa di động</div>
+                    <div class="menucon">🏷️ Loa kéo</div>
+                </div>
+
+                <div class="sp1">Tai Nghe</div>
+                <div class="sp2">
+                    <div class="menucon">🏷️ Tai nghe chụp tai</div>
+                    <div class="menucon">🏷️ Tai nghe nhét tai</div>
+                </div>
+
+                <div class="sp1">Âm Thanh Gia Đình</div> 
+                <div class="sp2">
+                    <div class="menucon">🏷️ Loa karaoke</div>
+                    <div class="menucon">🏷️ Loa thông Minh</div>
+                </div>
+
+                <div class="sp1">Sản Phẩm Gaming</div>
+                <div class="sp2">
+                    <div class="menucon">🏷️ Tai nge Gaming</div>
+                    <div class="menucon">🏷️ Loa gaming</div>
+                </div>
+
+                <div class="sp1">Âm Thanh Chuyên Nghiệp</div>
+                <div class="sp2">
+                    <div class="menucon">🏷️ Loa Sự Kiện</div>
+                </div>
+            </nav>
+            
+        </section>
+    
+  
+
+
+
+
+      
+
+            <header>
+                <section class="KHUNG_MENU" id="PT_an_hien">
+                    <nav class="Header_">
+                        <div class="_Logo_JBL"><a href="#"><img src="../Data/img/Logo_JBL.jpg" alt=""></a></div>
+                        <aside class="_Thanhtimkiem_sp_">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                            </svg>
+                            <input type="text" placeholder="Bạn cần tìm gì ?">
+                        </aside>
+
+                        <span class="Vanvangiohang">Giỏ hàng</span><div class="Soluonggiohang">99</div>
+
+                        <figure class="I_con_GIOHANG">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                            </svg>
+                        </figure>
+
+                        <figure class="I_Con_Thanh_Menu">
+                            <svg id="I_Con_Doc" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-justify" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
+                            </svg>
+
+                            
+
+                            <svg style="display: none"  id="Home" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-up" viewBox="0 0 16 16">
+                                <path d="M7.293 1.5a1 1 0 0 1 1.414 0L11 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l2.354 2.353a.5.5 0 0 1-.708.708L8 2.207l-5 5V13.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 2 13.5V8.207l-.646.647a.5.5 0 1 1-.708-.708z"/>
+                                <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.354-5.854 1.5 1.5a.5.5 0 0 1-.708.708L13 11.707V14.5a.5.5 0 1 1-1 0v-2.793l-.646.647a.5.5 0 0 1-.708-.707l1.5-1.5a.5.5 0 0 1 .708 0Z"/>
+                            </svg> 
+                              
+                        </figure>
+
+                        <figure class="Icon_Taikhoan">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                            </svg>
+                        </figure>
+                        <span class="Dangnhap">Đăng nhập</span>
+                        <span class="Dangky">Đăng ký</span>
+
+                        <div class="SDT_LIENHE">
+                            <span>Liên Hệ</span>
+                            <span >0369594026</span>
+                        </div>
+                        <div class="Icon_Cuocgoi">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-forward" viewBox="0 0 16 16">
+                                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zm10.762.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708"/>
+                            </svg>
+                        </div>
+
+                        <div class="Sanphamsosanh_">
+                            <span>Sản phẩm</span>
+                            <span>so sánh</span>
+                        </div>
+                        <div class="Icon_Sosanh">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5"/>
+                            </svg>
+                        </div>
+                    </nav>
+
+
+                </section>
+
+
+
+                <section class="KHUNG_DANHMUC_SP">
+                    <nav class="_Khung__Danhmuc">
+
+                        <section class="Danhmuc">
+                            <a href="#">
+                                <div class="Hinh_danhmuc"><img src="../Data/Danhmuc/Loa.webp" alt=""></div>
+                                <div class="Ten_Danhmuc"><span>Loa nghe nhạc</span></div>
+                            </a>
+
+                            <div class="Menu_">
+                                <p><a href="">Loa JBL</a></p>
+                                <p><a href="">Loa JBL</a></p>
+                            </div>
+                        </section>
+
+                        <section class="Danhmuc">
+                            <a href="#">
+                                <div class="Hinh_danhmuc"><img src="../Data/Danhmuc/Tai nghe.webp" alt=""></div>
+                                <div class="Ten_Danhmuc"><span>Tai nghe</span></div>
+                            </a>
+
+                            <div class="Menu_">
+                                <p><a href="">Loa JBL</a></p>
+                                <p><a href="">Loa JBL</a></p>
+                            </div>
+                        </section>
+
+                        <section class="Danhmuc">
+                            <a href="#">
+                                <div class="Hinh_danhmuc"><img src="../Data/Danhmuc/Am thanh gia dinh.webp" alt=""></div>
+                                <div class="Ten_Danhmuc"><span>Âm thanh gia đình</span></div>
+                            </a>
+
+                            <div class="Menu_">
+                                <p><a href="">Loa JBL</a></p>
+                                <p><a href="">Loa JBL</a></p>
+                            </div>
+                        </section>          
+
+
+                        <section class="Danhmuc">
+                            <a href="#">
+                                <div class="Hinh_danhmuc"><img src="../Data/Danhmuc/Gaming.webp" alt=""></div>
+                                <div class="Ten_Danhmuc"><span>Sản phẩm Gaming</span></div>
+                            </a>
+
+                            <div class="Menu_">
+                                <p><a href="">Loa JBL</a></p>
+                                <p><a href="">Loa JBL</a></p>
+                            </div>
+                        </section>
+
+
+                        <section class="Danhmuc">
+                            <a href="#">
+                                <div class="Hinh_danhmuc"><img src="../Data/Danhmuc/Loa am thanh chuen nghiep.jpg" alt=""></div>
+                                <div class="Ten_Danhmuc"><span>Âm thanh lớn</span></div>
+                            </a>
+
+                            <div class="Menu_">
+                                <p><a href="">Loa JBL</a></p>
+                                <p><a href="">Loa JBL</a></p>
+                                <p><a href="">Loa JBL</a></p>
+                                <p><a href="">Loa JBL</a></p>
+                            </div>
+                        </section>
+
+
+                    </nav>
+
+                </section>
+
+        </header>
+
+
+
+
+
+        <main>
+            <section class="Main_Sosanh">
+                <section class="Sosanh">
+                    Trang So Sánh
+                </section>
+            </section>
+
+
+
+
+        </main>
+
+        <footer>
+            <section class="Body_Footer">
+                <section class="Body_Footer_Center">
+                    <section class="Center_Footer">
+                        <nav>
+                            <section class="Chinh_Sach_Thongtin">
+                                <table>
+                                    <tr>
+                                        <th>Chính sách hỗ trợ</th>
+                                    </tr>
+
+                                    <tr><td>🔖 Chính sách bảo hành</td></tr>
+                                    <tr><td>🔖 Chính sách bảo mật</td></tr>
+                                    <tr><td>🔖 Chính sách giao hàng</td></tr>
+                                    <tr><td>🔖 Hướng dẫn mua hàng</td></tr>
+                                    <tr><td>🔖 Hướng dẫn đăng ký</td></tr>
+                                    <tr><td>🔖 Hệ thống cửa hàng</td></tr>
+
+                                </table>
+                            </section>
+
+                            <section class="Chinh_Sach_Khachhang">
+                                <table>
+                                    <tr>
+                                        <th>Chăm sóc khách hàng</th>
+                                    </tr>
+                                    
+                                    <tr><td>📲 Liên hệ 0369 594 026</td></tr>
+                                    <tr><td>⏰ Thời gian 08h00 - 17h00</td></tr>
+                                    <tr><td>🗓️ Thứ 2 - Thứ 7 </td></tr>
+                                </table>
+                            </section>
+
+                            <section class="Thong_Tin_Lienhe">
+                                <form action="">
+                                    <input type="text" placeholder="Bạn có thắc mắc gì ?">
+                                    <button>Gửi Ngay</button>
+                                </form>
+                            </section>
+ 
+                        </nav>
+
+                        <nav class="Thong_Tin_Cua_Hang">
+                            <span>Thương Hiệu Số 1 Thế Giới</span>
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d545.7719419348274!2d106.62922638015253!3d10.876878541883118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529180f3adad3%3A0x7d3971488d0dd553!2zQ2h1bmcgQ8awIEhp4buHcCBUaMOgbmggQ2l0eQ!5e1!3m2!1svi!2s!4v1725477950344!5m2!1svi!2s"
+                                style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                            <img src="../Data/img/Logo_JBL.jpg" alt="">
+                            <div class="Lienhe_xh">
+                                <div class="I_Con_xh">
+                                    <a href="#">
+                                        <img src="../Data/img/fb.svg" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="I_Con_xh">
+                                    <a href="#">
+                                        <img src="../Data/img/zalo.svg" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="I_Con_xh">
+                                    <a href="#">
+                                        <img src="../Data/img/youtobe.svg" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="I_Con_xh">
+                                    <a href="#">
+                                        <img src="../Data/img/tick.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </nav>
+
+                        <span>© 2005-2024 JBL Viet Nam</span>
+                    </section>
+                </section>
+            </section>  
+
+            
+        </footer>
+
+
+
+    </section>
+
+
+
+</body>
+
+    <script src="../Public/Javascriopt/Sosanh.js"></script>
+
+    <script>
+
+        // chuc nang header giu nguyen
+
+        window.onscroll = function() {myFunction()};
+
+        var header = document.getElementById("PT_an_hien");
+            var sticky = header.offsetTop;      // lưu trũ thuộc tính cố định
+
+            function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }  
+
+
+
+
+
+        // chuc nang thanh top
+
+        $(document).ready(function(){
+            $(window).scroll(function(){
+                if ($(this).scrollTop()){
+                    $('#Up_Top').fadeIn();
+                }else {
+                    $('#Up_Top').fadeOut();
+                }
+            })
+        });
+
+
+        $('#Up_Top').click(function(){
+            $('html,body').animate ({
+                scrollTop: 0
+            },1000);
+        });
+        
+    </script>
+
+
+
+
+</html>

@@ -1,0 +1,336 @@
+
+
+
+
+
+@media (Max-Width: 8000px){
+
+    :root {
+        --Body_Chitiet: 1390px;
+    }
+
+    main {
+        position: relative;
+        margin: 0 auto;
+        width: 1390px; height: auto;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    } 
+
+
+
+    .Contener {
+        display: grid;
+        grid-template-columns: 15% 65% 20%;
+        grid-template-rows: 1100px;
+        margin-top: 40px;
+    }
+
+
+     /* Box check MK ACOUNT */
+     .Box_Check_MK {
+        position: absolute;
+        width: 100%; height: 90%;
+        background-color: rgb(255, 255, 255);
+        z-index: 1 ;
+        transform: translate(-50%,0%);
+        left: 50%; top: 10%;
+        display: none;
+    }
+
+    .Load_s img {
+        position: absolute;
+        transform: translate(-50%,-0%);
+        top: 30%; left: 50%;
+        width: 400px;
+        display: none;
+    }
+
+  
+
+
+    .Text_Out i {
+        position: absolute;
+        font-size: 32px;
+        color: tomato;
+    }
+
+    .Box_Input_Check {
+        position: absolute;
+        transform: translate(-50%,-0%);
+        left: 50%; top: 10%;
+    }
+
+    .Button_Check_Delete {
+        position: absolute;
+        transform: translate(-50%,-0%);
+        left: 50%; top: 20%;
+      
+        color: white;
+        text-align: center;
+        background-color: tomato;
+        width: 500px;border: 0px;
+        padding: 13px 20px;
+        padding-right: 50px;
+        font-size: 25px;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .Text_Check_MK {
+        position: absolute;
+        left: 5%; font-size: 20px;
+    }
+
+    .Check_Eae_Pasword i {
+        position: absolute;
+        right: 20px; top: 50%;
+        font-size: 20px;
+    }
+
+
+
+
+    /*  */
+
+
+
+
+    .Text_Inpormation_Dom {
+        position: absolute;
+        font-size: 18px;
+        left: 1%; top: 2px;
+    }
+
+
+    .Box_Menu {
+        position: relative;
+        display: grid;
+        grid-column: 1/2;
+        grid-row: 1/2;
+        background-color: rgb(255, 255, 255);
+    }
+     
+    .Image_ID_USER img {
+        position: absolute;
+        left: 5px; top: 18px;
+        width: 60px; height: 60px;
+        border-radius: 50%;
+    }
+
+    .Name_User_ID {
+        position: absolute;
+        font-size: 22px;
+        left: 40%; top: 25px;
+        color: black;
+    }
+    
+    .User_ID {
+        position: absolute;
+        font-size: 16px;
+        left: 40%; top: 50px;
+    }
+
+
+    /*  */
+
+
+    .Box_Inpomation {
+        position: relative;
+        display: grid;
+        grid-column: 2/3;
+        grid-row: 1/2;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .Text_Name {
+        position: absolute;
+        font-size: 26px;
+        color: black;
+        left: 5%;top: 20px;
+    }
+
+    .Text_Name_Title {
+        position: absolute;
+        font-size: 20px;
+        color: rgb(48, 48, 48);
+        left: 5%;top: 60px;
+    }
+
+    .Dar_X_1PX {
+        position: absolute;
+        width: 90%; left: 5%;
+        height: 1px; background-color: rgb(197, 197, 197);
+        top: 110px;
+    }
+
+    
+    .Form_Check form {
+        position: absolute;
+        width: 80%; left: 5%;
+        top: 130px;
+    }
+
+
+    label {
+        color : rgb(133, 133, 133);
+        font-size: 18px;
+    }
+
+    input {
+        width: 500px;
+        border: 0px;
+        background-color: rgb(247, 247, 247);
+        padding: 13px 20px;
+        padding-right: 50px;
+        font-size: 25px;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+    }
+
+    input::placeholder {
+        font-size: 24px; color: black;
+        border: 0px;
+    }
+
+    input:focus {
+        border: none; outline: none;
+    }
+
+    .Check_Sex {
+        position: relative;
+        width: 200px;
+        height: 50px;
+    }
+
+    .Text_Check_Sex_Nam {
+        position: absolute;
+        color : rgb(133, 133, 133);
+        font-size: 18px;
+        left: 0px;
+    }
+
+    .Text_Check_Sex_Nu {
+        position: absolute;
+        left: 70px;
+        color : rgb(133, 133, 133);
+        font-size: 18px;
+    }
+
+    .Check_Nam input {
+        position: absolute;
+        left: 1px; top: 30px;
+        width: 17px; height: 17px;
+    }
+
+    .Check_Nu input {
+        position: absolute;
+        left: 70px; top: 30px;
+        width: 17px; height: 17px;
+    }
+
+    .Check_Cyty {
+        position: absolute;
+        left: 1px; 
+        margin-top: 50px;
+    }
+
+    select {
+        width: 210px;
+        border: 0px;
+        background-color: rgb(247, 247, 247);
+        padding: 13px 14px;
+        padding-right: 50px;
+        font-size: 20px;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        margin-right: 20px;
+
+    }
+    
+    .option {
+        border: none;
+    }
+
+
+    .Text_Condition_Acount {
+        position: absolute;
+        width: 100%; height: auto;
+        margin-top: 160px;
+    }
+
+    textarea {
+        position: absolute;
+        color: black;
+        font-size: 24px;
+        padding: 15px;
+    }
+
+
+    .Up button {
+        margin-top: 405px;
+        border: 0px;
+        background-color: tomato;
+        color: white;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 20px; text-align: center;
+        padding: 20px 130px;
+    } 
+
+
+    .Delete_User {
+        position: absolute;
+        right: 5%; bottom: 0px;
+        width: 100px; height: auto;
+        padding: 20px 70px;
+        background-color: black;
+        color: white;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 20px; text-align: center;
+    }
+
+
+     
+    /*  _____________ */
+
+    .Box_Upload_Image {
+        position: relative;
+        display: grid;
+        grid-column: 3/4;
+        grid-row: 1/2;
+        background-color: rgb(253, 253, 253);
+    }
+
+    .Box_Check_Image {
+        width: 100%; height: 100%;
+    }
+
+
+    .Image img {
+        position: absolute;
+        transform: translate(-50px , -0%);
+        left: 50%; top: 50px;
+        width: 110px; height: 110px;
+        border-radius: 50%;
+    }
+
+    .Up_Image input {
+        position: absolute;
+        transform: translate(-50% , 0%);
+        left: 50%; top: 190px;
+        font-size: 15px;
+        color: rgb(212, 5, 5);
+        /* background-color: rgb(247, 247, 247); */
+        border-radius: 5px;
+        width: 170px; height: 20px;
+        background-color: white;
+        border: 1px solid rgb(185, 185, 185);
+    }
+
+    .Text_ {
+        position: absolute;
+        width: 80%; height: auto;
+        transform: translate(-50%,-0%);
+        left: 50%; top: 260px;
+        color : rgb(133, 133, 133);
+        font-size: 14px; text-align: center;
+    }
+
+}

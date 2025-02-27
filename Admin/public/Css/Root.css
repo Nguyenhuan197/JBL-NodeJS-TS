@@ -1,0 +1,66 @@
+/* Đặt style cho Box_Body_Conten */
+.Box_Body_Conten {
+    display: flex; /* Tạo layout dạng flexbox */
+    flex-wrap: wrap; /* Các box sẽ tự xuống hàng nếu không đủ chỗ */
+    gap: 16px; /* Khoảng cách giữa các box */
+    max-height: 600px; /* Chiều cao tối đa của container */
+    overflow-y: auto; /* Thêm cuộn dọc nếu nội dung quá nhiều */
+    padding: 10px;
+    border: 1px solid #ddd; /* Viền nhẹ cho container */
+    background-color: rgb(230, 230, 230);
+}
+
+/* Style cho từng box con */
+.Box_Body_Conten .Box_News {
+    width: 240px; /* Cố định chiều rộng */
+    height: 320px; /* Cố định chiều cao */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #ccc; /* Viền nhạt cho từng box */
+    border-radius: 8px; /* Bo góc */
+    background-color: #fff; /* Nền trắng */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+    overflow: hidden; /* Cắt nội dung thừa */
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s; /* Hiệu ứng hover */
+    margin: 10px;
+}
+
+/* Hiệu ứng hover cho box */
+.Box_Body_Conten .Box_News:hover {
+    transform: translateY(-5px); /* Di chuyển nhẹ khi hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Tăng độ đổ bóng */
+}
+
+/* Style cho hình ảnh trong box */
+.Box_Body_Conten .Box_News img {
+    width: 100%; /* Hình ảnh chiếm toàn bộ chiều rộng của box */
+    height: 150px; /* Cố định chiều cao */
+    object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
+    border-radius: 6px; /* Bo góc hình ảnh */
+    margin-bottom: 10px;
+}
+
+/* Style cho các phần thông tin */
+.Box_Body_Conten .Box_News div {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555; /* Màu chữ nhẹ */
+    overflow: hidden; /* Ẩn nội dung thừa */
+    text-overflow: ellipsis; /* Thêm dấu ... nếu nội dung quá dài */
+    white-space: nowrap; /* Không cho xuống hàng */
+}
+
+/* Style cho liên kết Xem Thêm */
+.Box_Body_Conten .Box_News a {
+    color: #007bff; /* Màu xanh cho liên kết */
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: auto; /* Đẩy liên kết xuống cuối box */
+}
+
+.Box_Body_Conten .Box_News a:hover {
+    text-decoration: underline; /* Gạch chân khi hover */
+}

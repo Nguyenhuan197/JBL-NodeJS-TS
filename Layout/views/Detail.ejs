@@ -1,0 +1,700 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load ...</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <link rel="icon" href="data:image/png;base64,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" type="image/png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+        <link rel="stylesheet" href="/Css/Header/Header false.css">
+        <link rel="stylesheet" href="/CSS/Detail.css">
+        <link rel="stylesheet" href="/CSS/Footer.css">
+        <link rel="stylesheet" href="/CSS/Default/Features.css">
+        <link rel="stylesheet" href="/CSS/Default/Parameters.css">
+ 
+        <script type="module">  
+            import {
+                Heder,
+                Thanh_Top,
+                Load_Menu
+    
+            } 
+                from "/Javascript/Function/Module.js";
+
+            const _Heder  = Heder();
+            const _Thanh_Top = Thanh_Top();
+            const _Load_Menu = Load_Menu();
+                document.getElementsByTagName("title")[0].innerHTML = "JBL | Detail";
+        </script>
+</head>
+
+
+<body> 
+    <section class="Error_404"><img src="Data/img/Error 404.png" alt=""></section>
+    <section class="Load_dinh"><nav class="Load_"></nav></section>
+    <section class="Features_Notification"></section>
+
+    <section class="Main_">
+        <div class="Thanh_Top" id="Up_Top"><i class="bi bi-arrow-bar-up"></i></div>
+        <div class="Thanh_Chat">Chat</div>
+        <section class="Video_Danhgia">
+            <svg onclick="Bovideo()" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg>
+            <iframe></iframe>
+        </section>
+
+
+          <!--  Header -->
+            <%- include('./partials/Header')  %>
+          <!--  -->
+
+        <main>
+            <section class="Khung_Thongso_sp">
+                <div class="conThongtin" >
+                    <svg class xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                    </svg>
+                </div>
+                <span class="Thongtin_Kithuat">Thông Số Kỹ Thuật</span>
+                <nav class="Khungthong_Tin_Thongso">
+                    <table>
+                        <tr>
+                            <td>Cổng kết nối</td>
+                            <td>không</td>
+                        </tr>
+            
+            
+                        <tr>
+                            <td>Kích thước sản phẩm:</td>
+                            <td>94.3 x 75.7 x 42.2(mm)</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Trọng lượng:</td>
+                            <td>190g</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Cấu hình Bluetooth®:</td>
+                            <td>A2DP V1.4, AVRCP V1.6</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Cổng kết nối</td>
+                            <td>không</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Kích thước sản phẩm:</td>
+                            <td>94.3 x 75.7 x 42.2(mm)</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Trọng lượng:</td>
+                            <td>190g</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Cấu hình Bluetooth®:</td>
+                            <td>A2DP V1.4, AVRCP V1.6</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Cổng kết nối</td>
+                            <td>không</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Kích thước sản phẩm:</td>
+                            <td>94.3 x 75.7 x 42.2(mm)</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Trọng lượng:</td>
+                            <td>190g</td> 
+                        </tr>
+            
+                        <tr>
+                            <td>Cấu hình Bluetooth®:</td>
+                            <td>A2DP V1.4, AVRCP V1.6</td>
+                        </tr>
+            
+                    </table>
+                </nav>
+            
+            </section>
+            
+            
+            <section class="Main_Chitiet_">
+                <nav class="Thanhtrang_controler">
+                    <p>Trang Chủ - Sale Tháng 9 - Loa JBL GO 4 Hàng Chính Hãng</p>
+                </nav>
+            </section>
+            
+            <section class="Body_Chitiet">
+                <nav class="_Body">
+                    <section class="Khungthongtin_chitietsp">
+                        <section class="Thongtinchitietsp_">
+                            <nav class="Khungthongtin1">
+            
+                                <nav class="khung_anhsp">
+                                    <!-- <div class="Yotobe_" value="" title="YouTube video player" onclick="Load_Youtobe(this)"><img src="/Image/youtube.svg" alt=""></div>
+                                    <div class="Anhssp_"><img src="../Upload/Product/2-1.webp" alt=""></div>
+            
+                                    <div class="Khungdieuhuong_trai" Data-value="Back_Box" onclick="Condition(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223"/>
+                                        </svg>
+                                    </div>
+            
+                                    <div class="khungsp_con">
+                                        <nav class="Khung_anh_conn">
+                                            <div class="anhsp_con_" ><img src="../Upload/Product/18-1.webp" alt=""></div>
+                                        </nav> 
+                                    </div>
+            
+                                    <div class="Khungdieuhuong_phai" Data-value="Next_Box"  onclick="Condition(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671"/>
+                                        </svg>
+                                    </div> -->
+                                </nav>
+             
+            
+                                <nav class="Khhungchitiet">
+                                    <div id="View_Name_Product">
+                                        <!-- <span class="Tensp_">Tên sản phẩm 1</span>
+                                        <span class="Dabansoluong">Sold : <span>12</span></span>
+                                        <span class="Tieudegiaban">Selling Price :</span>
+                                        <span class="Money">999</span>
+                                        <span class="Money_cu"><del>?? giá giảm</del></span> -->
+                
+                                    </div>
+
+                                    <div class="Khung_sao">
+                                        <div class="ngoisao"><i class="bi bi-star-fill"></i></div>
+                                        <div class="ngoisao"><i class="bi bi-star-fill"></i></div>
+                                        <div class="ngoisao"><i class="bi bi-star-fill"></i></div>
+                                        <div class="ngoisao"><i class="bi bi-star-fill"></i></div>
+                                        <div class="ngoisao"><i class="bi bi-star-fill"></i></div>
+                                    </div>
+            
+                                    <span class="Vanvanphanloai_">Color</span>
+                                    <nav class="block-color_">
+                                        <div value="red" onclick="Load_Mausac(this)" Pi="0"  style="background-color: red;" class="Khung_color_"></div>
+                                        <div value="rgb(6, 125, 29)" onclick="Load_Mausac(this)" Pi="1"  style="background-color: rgb(6, 125, 29);" class="Khung_color_"></div>
+                                        <div value="gold" onclick="Load_Mausac(this)" Pi="2"  style="background-color: gold" class="Khung_color_"></div>
+                                        <div value="rgb(34, 9, 98)" onclick="Load_Mausac(this)" Pi="3"  style="background-color: rgb(34, 9, 98);" class="Khung_color_"></div>
+                                        <div value="rgb(182, 182, 182)" onclick="Load_Mausac(this)"  Pi="4" style="background-color: rgb(182, 182, 182);" class="Khung_color_"></div>
+                                    </nav> 
+            
+                                    <span class="Span_Soluong_">Quantity</span>
+                                    <div class="Giamsp">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8"/>
+                                        </svg>
+                                    </div>
+                                    <div id="Soluong_Sanpham" class="SL_">1</div>
+            
+                                    <div class="Tangsp">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                                        </svg>
+                                    </div>
+            
+                                    <div class="Muangay">Buy Now</div>
+                                    <div class="giohang"><span class="Name_Shopping_Cart">Thêm giỏ hàng</span></div>
+                                    <div class="khung_icon_dacdiemnoibat"> Đặc điểm nổi bật
+                                        <img src="/Data/img/ngonlua.webp" alt="">
+                                    </div>
+            
+            
+                                    <section class="Khungdacdiemnoibat">
+                                        <table>
+                                            <tr><td>- Thời lượng pin lên đến 7 giờ</td></tr>
+                                            <tr><td>- Chuẩn kháng nước IP67</td></tr>
+                                            <tr><td>- Bluetooth 5.3</td></tr>
+                                            <tr><td>- Kết nối đa loa dễ dàng với Auracast</td></tr>
+                                            <tr><td>- Màu sắc độc đáo đa dạng</td></tr>
+                                        </table>
+                                    </section>
+                                </nav>
+                            </nav>
+                        </section>
+            
+            
+                    </section>
+            
+                   
+            
+            
+                    <section class="Khungthongsosanpham">
+                        <span class="Thongsokithuat">Thông số kỹ thuật</span>
+            
+                        <table>
+            
+                            <tr>
+                                <td>Màng Loa</td>
+                                <td>43 * 47 mm</td>
+                            </tr>
+            
+                            <tr>
+                                <td>Công suất</td>
+                                <td>42 W RSM</td>
+                            </tr>
+            
+                            <tr>
+                                <td>Thời lượng pin</td>
+                                <td>5 giờ</td>
+                            </tr>
+            
+                            <tr>
+                                <td>Cổng sạc:</td>
+                                <td>Type-C</td>
+                            </tr>
+            
+                            <tr>
+                                <td>Cổng kết nối:</td>
+                                <td>Không</td>
+                            </tr>
+            
+                            <tr>
+                                <td>Kích thước</td>
+                                <td>87.5 x 75 x 41.3(mm)</td>
+                            </tr>
+            
+                            <tr>
+                                <td>Trọng lượng</td>
+                                <td>209g</td>
+                            </tr>
+            
+                            <tr>
+                                <td>JBL PartyBoost</td>
+                                <td>không</td>
+                            </tr>
+            
+                        </table>  
+            
+                        <div class="Xemthemthongso">Xem Thêm Cấu Hình</div>
+            
+                    </section>
+            
+            
+                    <section class="Video_Danhgia_Chitiet">
+                        <svg class="Bo_Video" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg>
+                        <iframe  allowfullscreen></iframe>
+                    </section>            
+                </nav>
+            
+            </section>
+            
+            
+            
+            
+            <section class="Khung_Motachitiet_Them_">
+                <section class="Khung_Motachitiet_Them_Center">
+            
+            
+                    <section class="khung_vanbanchitietsp_">
+            
+                        <section class="Khung_chua_Vanbanchitiet_">
+                            <nav class="Thongtin_chiotiet1">
+            
+                                <h2>JBL Quantum 910 Wireless: Tai nghe tối thượng dành cho Game thủ</h2>
+                                Tai nghe JBL Quantum 910 Wireless mang đến âm thanh chuẩn xác, không gian kép, độ phân giải cao với công nghệ theo dõi chuyển động đầu chuyên nghiệp đỉnh cao. Kết nối không dây với độ trễ thấp đồng nghĩa rằng sẽ không còn bị giật lag khi nói chuyện với đồng đội, và tính năng chống ồn chủ động cho phép bạn chơi mà không bị phân tâm ngay cả ở những nơi ồn ào nhất. Tai nghe JBL Quantum 910 Wireless có thời lượng pin lên đến 45 giờ, ngoài ra bạn còn có thể vừa sạc vừa chơi khi "try hard" nhiều giờ liền. Và với thiết kế công thái học mang đến sự thoải mái tuyệt đối, chắc chắn bạn sẽ muốn đắm chìm vào thế giới ảo cả ngày. Gạt bỏ sự vướng víu và chơi theo cách của riêng bạn.
+                            </nav>
+                            <nav class="Anhthongtin_chitiet1"><img src="/Upload/Review Producut/5.webp" alt=""></nav>
+            
+                            <nav class="Thongtin_chiotiet2">
+                                Trải nghiệm công nghệ theo dõi chuyển động đầu chuyên nghiệp đỉnh cao JBL QuantumSPHERE 360™ trên PC
+                                Công nghệ âm thanh theo dõi chuyển động đầu JBL QuantumSPHERE 360™, được phát triển từ hệ thống JBL QuantumENGINE, thông qua dongle USB-C mang đến cho bạn khả năng định vị âm thanh 3D tinh xảo ở cấp độ chuyên nghiệp trên máy tính. Thuật toán hiệu chỉnh chuyên sâu của JBL cùng cảm biến theo dõi chuyển động đầu tích hợp và micro phụ trợ được xây dựng dành riêng cho tai nghe không dây JBL Quantum 910 mang đến cho game thủ tầm cao mới về khả năng định vị âm thanh không gian, cải thiện bản năng phản xạ tự nhiên. Chuẩn âm thanh DTS Headphone: X v2.0 cũng được trang bị trên JBL QuantumENGINE.
+            
+                                Chớp lấy ưu thế với JBL Quantum SPATIAL 360™ ngay trên console
+                                Trải nghiệm công nghệ QuantumSPATIAL 360™ ngay trên hệ máy console với kết nối dongle USB-C mà chẳng cần đến app JBL QuantumENGINE. Công nghệ theo dõi chuyển động đầu được tích hợp mang đến âm thanh với sự chính xác, độ rõ nét tối đa để bạn chiến thắng trong mọi cuộc chơi.
+            
+                                Trở thành trung tâm của trò chơi cùng công nghệ âm thanh JBL QuantumSOUND Signature
+                                Từ tiếng bước chân mong manh đến những pha cháy nổ khốc liệt, công nghệ âm thanh JBL QuantumSOUND Signature đưa mọi cảnh game hoành tráng hơn và mỗi game thủ quyền năng cạnh tranh hơn. Driver kim loại Neodymium lớn tới 50mm được chứng nhận chuẩn Hi-Res được tinh chỉnh bởi những nghệ nhân âm thanh từ JBL và thiết kế đặc thù cho game thủ. Tất cả mang tới không gian âm thanh đa hướng chân thực và lợi thế âm thanh thực thụ trong mỗi trận chiến. 
+                                Hệ thống không dây với độ trễ cực thấp
+                                Những quyết định trong tích tắc đều có thể dẫn đến chiến thắng hay thất bại trong cuộc chơi. Đó là lí do tại sao JBL Quantum 910 Wireless sử dụng băng tần không dây 2.4 GHz để đảm bảo đường truyền không độ trễ.
+                            </nav>
+            
+                            <nav class="Anhthongtin_chitiet2"><img src="/Upload/Review Producut/4.webp" alt=""></nav>
+            
+                            <nav class="Thongtin_chiotiet3">
+                                Chống ồn chủ động, tối ưu cho game thủ
+                                Thiết kế dành riêng cho gaming, tính năng chống ồn chủ động thích ứng trên tai nghe JBL Quantum 910 Wireless giúp loại bỏ những tạp âm không mong muốn xung quanh để bạn tập trung cao độ khi tham gia chiến đấu. 
+            
+                                Vừa chơi, vừa sạc
+                                Chiến game cả ngày lẫn đêm với thời lượng pin 39 giờ và thậm chí bạn có thể vừa sạc vừa chơi với cáp sạc USB đi kèm. Tai nghe JBL Quantum 910 Wireless không bao giờ ngừng hoạt động - và không bao giờ khiến bạn thất vọng. USB-C dongle đi kèm với đầu nối USB-C đến USB-A.
+            
+                                Hai luồng kết nối không dây
+                                Tai nghe JBL Quantum 910 Wireless cho phép bạn kết nối đồng thời với cả hai nguồn: trong khi dongle giúp bạn kết nối game mượt mà và chuẩn xác, còn Bluetooth cho phép bạn trò chuyện với bạn bè rõ ràng hoặc nghe nhạc thư giãn.
+            
+                                Tối ưu cho PC, tương thích với mọi nền tảng
+                                Tai nghe không dây JBL Quantum 910 tương thích qua kết nối không dây 2.4GHz với PC, Playstation™ (PS5 và PS4) và Nintendo Switch™, qua Bluetooth 5.2 với các thiết bị tương thích Bluetooth và qua jack cắm âm thanh 3.5mm với PC, PlayStation™, Xbox™, Nintendo Switch™, điện thoại, Mac và VR. Các tính năng được cung cấp bởi JBL QuantumENGINE (JBL QuantumSURROUND, RGB, EQ, cài đặt micrô, v.v.) chỉ khả dụng trên PC. Kiểm tra hướng dẫn kết nối để biết khả năng tương thích.
+                            </nav>
+            
+                            <nav class="Anhthongtin_chitiet3"><img src="/Upload/Review Producut/6.webp" alt=""></nav>
+            
+                            <nav class="Thongtin_chiotiet4">
+                                Mic gạt ngắt tiếng cùng công nghệ khử ồn và vọng âm
+                                Công nghệ khử tiếng vang và tiếng ồn đảm bảo giọng nói của bạn được truyền đạt to rõ đến đồng đội. Và khi bạn cần tập trung, chỉ cần gạt micro lên để tắt ghi âm.
+            
+                                Thiết kế bền bỉ, hoàn toàn thoải mái
+                                Dải trùm đầu nhẹ, thoáng khí, bền bỉ, đệm tai bọc da cao cấp cùng xốp mềm mại tạo sự thoải mái tuyệt đối, tất cả để bạn chinh chiến ngay cả những màn try-hard dài hạn nhất.
+            
+                                **SỬ DỤNG ĐÚNG THÔNG SỐ NGUỒN CẤP/NGUỒN SẠC CỦA HÃNG VÀ KHÔNG SỬ DỤNG ADAPTOR(CÓC/CỦ SẠC) SẠC NHANH
+                            </nav>
+            
+                            <nav class="Anhthongtin_chitiet3"><img src="/Upload/Review Producut/2.webp" alt=""></nav>
+                            <div class="xemthem"><span>Xem Thêm</span></div>
+                        </section>
+            
+            
+                    </section>
+            
+                    <section class="Khungthongtin_thongso_2">
+                        <span class="Tronghopcogi">Chỉ có tại JBL Online Store</span>
+            
+                        <table>
+                            <tr><td>Bảo Hàng 12 Tháng</td></tr>
+                            <tr><td>Cam Kết Hàng Chính Hãng</td></tr>
+                            <tr><td>Giao Hàng Nhanh Toàn Quốc</td></tr>
+                        </table>
+            
+                        <span class="Tuvanhotro">Hỗ Trợ Khách Hàng</span>
+                        <nav class="khung_Lienhe_">
+                            <div class="img_hotro">
+                                <img src="/Image/hotro.webp" alt="">
+                            </div>
+                            <span class="sdt">Tư vấn hỗ trợ</span>
+                        </nav>
+            
+                        
+                    </section>
+            
+                </section>
+            
+                
+            </section>
+            
+            
+            
+            <section class="Khung_Danhgiasanpham_">
+            
+                <!-- Bên dưới là khung hiện đánh giá  -->
+                <nav class="Gui_Danhgia">
+                    <div class="Bo_binhluankhachhang">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                        </svg>
+                    </div>
+            
+                    <span class="Text_Danhgiasanpham">Đánh giá sản phẩm</span>
+                    <span class="Text_Tensanpham">Loa JBL GO 4 Hàng Chính Lorem scsdc ipsum dolor sit amepudiandae soluta aperiam.</span>
+                    <span class="Text_Danhgiasp_cuaban">Đánh giá về sản phẩm </span>
+                  
+                    <div class="Box_Saodanhgia " >
+                        <div class="Sao"  Soluong_Sao = "0" onclick="Evaluate_Star(this)" >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                        </div>
+            
+                        <div class="Sao"  Soluong_Sao = "1" onclick="Evaluate_Star(this)" >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                        </div>
+                        
+                        <div class="Sao"  Soluong_Sao = "2" onclick="Evaluate_Star(this)" >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                        </div>
+            
+                        <div class="Sao"  Soluong_Sao = "3" onclick="Evaluate_Star(this)" >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                        </div>
+            
+                        <div class="Sao"  Soluong_Sao = "4" onclick="Evaluate_Star(this)" >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                        </div>
+                    </div>
+            
+                    
+            
+                </nav>
+            
+            
+                <section class="Khung_Danhgiasanpham__Center">
+                    <section class="Box_Thongtinphu">
+                        <nav class="Box_Tailieukithuat">
+                            <span class="Text_Tailieukithuat">Kham Khảo Thêm</span>
+                            <div class=" iconBox1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
+                                </svg>
+                            </div>
+            
+                            <span class="Vanban_Huongdannhanh">Hướng Dẫn Nhanh</span>
+            
+            
+                            <div class=" iconBox2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
+                                </svg>
+                            </div>
+            
+                            <span class="Vanban_Huongdannhanh2" >Bảng thông số chi tiết</span>
+            
+                        </nav>
+            
+                        <nav class="Box_Danhgia_sp">
+                            <span class="Soluong_sao">0.0</span>
+                            <div class="Box_Ngoisao">
+                                <div class="Start_">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                    </svg>
+                                </div>
+                                <div class="Start_">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                    </svg>
+                                </div>
+                                <div class="Start_">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                    </svg>
+                                </div>
+                                <div class="Start_">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                    </svg>
+                                </div>
+                                <div class="Start_">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                    </svg>
+                                </div>
+                            </div>
+            
+                            <span class="Soluongdanhgia ">0 Đánh giá</span>
+                            <span class="Guidanhgiacuaban">Gửi đánh giá của bạn</span>
+            
+                            <div class="Box_Chondanhgia_sp">
+                                <span class="Chondanhgia_Tatca ">Tất Cả</span>
+                                <span class="Chondanhgia_Tatca Trangthaichua_cobinhluan">1 Điểm (0)</span>
+                                <span class="Chondanhgia_Tatca Trangthaichua_cobinhluan">2 Điểm (0)</span>
+                                <span class="Chondanhgia_Tatca Trangthaichua_cobinhluan">3 Điểm (0)</span>
+                                <span class="Chondanhgia_Tatca Trangthaichua_cobinhluan">4 Điểm (0)</span>
+                                <span class="Chondanhgia_Tatca Trangthaichua_cobinhluan">5 Điểm (0)</span>
+                            </div>
+                          
+                        </nav>
+            
+            
+                        <nav class="Box_Binhluankhachhang_">
+                            <div class="Image_Trangthaichuabinhluan">
+                                <img src="/img/Chua co danh gia.jpg" alt="">
+                                <span>Sản Phẩm Chưa Có Bình Luận</span>
+                            </div>
+            
+            
+                            <div class="Box_Khachhangbinhluan">
+                                
+            
+                                <table >
+                                    <tr>
+                                        <td style="margin: 0px; padding-right: 20px; width: 5%;">
+                                            <div class="Image_Khachhang" >
+                                                <img src="/Upload/Acount/Acount 1.jpg" alt="">
+                                            </div>
+                                        </td>
+                                        <td style="width: 90%;" class="Start_Khachhang">
+                                            <span class="Name_Khachhang">Ngọc Lâm</span>
+                                            <h5 class="Sl_sao_K_hangdanhgia" style="display: none;">1</h5>
+                                            
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                                        </td>
+                                       
+                                    </tr>
+            
+                                    <tr>
+                                        <td style="font-size: 17px; color: black; font-weight: 500;">
+                                           <div class="guidi">
+                                                <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-send-check" viewBox="0 0 16 16">
+                                                    <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855a.75.75 0 0 0-.124 1.329l4.995 3.178 1.531 2.406a.5.5 0 0 0 .844-.536L6.637 10.07l7.494-7.494-1.895 4.738a.5.5 0 1 0 .928.372zm-2.54 1.183L5.93 9.363 1.591 6.602z"/>
+                                                    <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686"/>
+                                                </svg>
+                                           </div>
+                                        </td>
+                                        <td>Sản phẩm hoạt động tốt nhưng pin ra hơi nhanh</td>
+                                    </tr>
+            
+                                    <tr>
+                                        <td style="font-size: 17px; color: black; font-weight: 500;">
+                                            <div class="Thoigianbinhluan">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-alarm" viewBox="0 0 16 16">
+                                                    <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9z"/>
+                                                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1zm1.038 3.018a6 6 0 0 1 .924 0 6 6 0 1 1-.924 0M0 3.5c0 .753.333 1.429.86 1.887A8.04 8.04 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5M13.5 1c-.753 0-1.429.333-1.887.86a8.04 8.04 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1"/>
+                                                  </svg>
+                                            </div>
+                                            
+                                        </td>
+                                        <td>11:26 29-09-2024</td>
+                                    </tr>
+                                </table>
+                                
+            
+                                <table >
+                                    <tr>
+                                        <td style="margin: 0px; padding-right: 20px; width: 5%;">
+                                            <div class="Image_Khachhang" >
+                                                <img src="/Upload/Acount/Acount 1.jpg" alt="">
+                                            </div>
+                                        </td>
+                                        <td style="width: 90%;" class="Start_Khachhang">
+                                            <span class="Name_Khachhang">Hoàng Bảo</span>
+                                            <h5 class="Sl_sao_K_hangdanhgia" style="display: none;">5</h5>
+                                            
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                                        </td>
+                                       
+                                    </tr>
+            
+                                    <tr>
+                                        <td style="font-size: 17px; color: black; font-weight: 500;">
+                                           <div class="guidi">
+                                                <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-send-check" viewBox="0 0 16 16">
+                                                    <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855a.75.75 0 0 0-.124 1.329l4.995 3.178 1.531 2.406a.5.5 0 0 0 .844-.536L6.637 10.07l7.494-7.494-1.895 4.738a.5.5 0 1 0 .928.372zm-2.54 1.183L5.93 9.363 1.591 6.602z"/>
+                                                    <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686"/>
+                                                </svg>
+                                           </div>
+                                        </td>
+                                        <td>Sản phẩm hoạt động tốt nhưng pin ra hơi nhanh</td>
+                                    </tr>
+            
+                                    <tr>
+                                        <td style="font-size: 17px; color: black; font-weight: 500;">
+                                            <div class="Thoigianbinhluan">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-alarm" viewBox="0 0 16 16">
+                                                    <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9z"/>
+                                                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1zm1.038 3.018a6 6 0 0 1 .924 0 6 6 0 1 1-.924 0M0 3.5c0 .753.333 1.429.86 1.887A8.04 8.04 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5M13.5 1c-.753 0-1.429.333-1.887.86a8.04 8.04 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1"/>
+                                                  </svg>
+                                            </div>
+                                            
+                                        </td>
+                                        <td>11:26 29-09-2024</td>
+                                    </tr>
+                                </table>   
+            
+            
+                                <table >
+                                    <tr>
+                                        <td style="margin: 0px; padding-right: 20px; width: 5%;">
+                                            <div class="Image_Khachhang" >
+                                                <img src="/Upload/Acount/Acount 1.jpg" alt="">
+                                            </div>
+                                        </td>
+                                        <td style="width: 90%;" class="Start_Khachhang">
+                                            <span class="Name_Khachhang">Phan Đình Phùng</span>
+                                            <h5 class="Sl_sao_K_hangdanhgia" style="display: none;">1</h5>
+                                            
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+                                        </td>
+                                       
+                                    </tr>
+            
+                                    <tr>
+                                        <td style="font-size: 17px; color: black; font-weight: 500;">
+                                           <div class="guidi">
+                                                <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-send-check" viewBox="0 0 16 16">
+                                                    <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855a.75.75 0 0 0-.124 1.329l4.995 3.178 1.531 2.406a.5.5 0 0 0 .844-.536L6.637 10.07l7.494-7.494-1.895 4.738a.5.5 0 1 0 .928.372zm-2.54 1.183L5.93 9.363 1.591 6.602z"/>
+                                                    <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686"/>
+                                                </svg>
+                                           </div>
+                                        </td>
+                                        <td>Sản Phẩm Rất Tệ Chưa Hài Lòng</td>
+                                    </tr>
+            
+                                    <tr>
+                                        <td style="font-size: 17px; color: black; font-weight: 500;">
+                                            <div class="Thoigianbinhluan">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-alarm" viewBox="0 0 16 16">
+                                                    <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9z"/>
+                                                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1zm1.038 3.018a6 6 0 0 1 .924 0 6 6 0 1 1-.924 0M0 3.5c0 .753.333 1.429.86 1.887A8.04 8.04 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5M13.5 1c-.753 0-1.429.333-1.887.86a8.04 8.04 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1"/>
+                                                  </svg>
+                                            </div>
+                                            
+                                        </td>
+                                        <td>11:26 29-09-2024</td>
+                                    </tr>
+                                </table>
+                               
+            
+                            </div>
+                            
+                        </nav>
+                     
+                        <nav class="Box_Sanphamtuongtu">
+                            <div class="Box_Chay_sanpham">
+                               <!-- <a href="">
+                                    <section class="Box_Sanpham_Goiy">
+                                        <div class="Image_Sanphamtuongtu">
+                                            <img src="/Upload/Product/8-2.webp" alt="">
+                                        </div>
+                                        <span class="Tensp_Tuongtu">Load JBL có sức công phá thật chi là mạnh mẽ </span>
+                                        <span class="Giasp_Tuongtu">3.960.000 đ</span>
+                                    </section>
+                               </a> -->
+
+                            </div>
+
+
+                            
+            
+                        </nav>
+                    </section>
+                </section>
+            </section>  
+
+
+        </main>
+
+       
+
+      
+           <!-- Footer -->
+           <%- include('./partials/Footer')  %>
+           <!-- Footer -->
+
+
+    </section>
+
+</body> 
+
+    
+  
+    <script script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/Javascript/Function/Notification.js"></script>
+    <script src="/Javascript/Function/Money Vietnam.js"></script>
+    <script src="/Javascript/Function/Click Slide.js"></script>
+    <script src="/Javascript/Function/Click image.js"></script>
+    <script src="/Javascript/Function/Load Youtube.js"></script>
+    <script src="/Javascript/Function/Evaluate Star.js"></script>
+    <script src="/Javascript/Function/See more new.js"></script>
+    <script src="/Javascript/Function/Time Load Page.js"></script>
+    <script src="/Javascript/Status_Acount.js"></script>
+    <script src="/Javascript/Detail.js"></script>
+    
+</html>

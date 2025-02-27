@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin Video YouTube</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Nhập URL video YouTube</h1>
+
+    <!-- Form nhập URL -->
+    <form id="url-form">
+        <label for="video-url">URL video YouTube:</label>
+        <input type="text" id="video-url" placeholder="Nhập URL video YouTube" required>
+        <button type="submit">Lấy thông tin video</button>
+    </form>
+
+    <h2>Thông tin Video</h2>
+    <div id="video-info">
+        <p id="title"></p>
+        <p id="views"></p>
+        <p id="likes"></p>
+        <p id="comments"></p>
+    </div>
+
+    <script>
+        // API Key YouTube của bạn
+        const apiKey = "AIzaSyDrEjaTN6i4u9b12PeVAxvuH7Q5NKAge9c"; // Thay bằng API Key của bạn
+
+        // Xử lý form khi người dùng nhập URL và nhấn submit
+        $('#url-form').on('submit', function(e) {
+            e.preventDefault(); // Ngừng hành động mặc định của form (reload trang)
+            
+            // Lấy URL video từ input
+            const url = $('#video-url').val();
+            if (!url) {
+                alert("Vui lòng nhập URL video.");
+                return;
+            }
+
+            // Xử lý URL rút gọn (youtu.be)
+            let videoId = "";
+            if (url.includes("youtu.be")) {
+                const urlParts = url.split('/');
+                videoId = urlParts[urlParts.length - 1]; // Lấy phần videoId từ URL rút gọn
+            } else if (url.includes("youtube.com")) {
+                // Lấy videoId từ URL đầy đủ
+                const urlParams = new URLSearchParams(new URL(url).search);
+                videoId = urlParams.get('v');
+            }
+
+            if (!videoId) {
+                alert("URL không hợp lệ. Vui lòng nhập đúng URL YouTube.");
+                return;
+            }
+            console.log("Video ID:", videoId); // In ra Video ID
+
+            // Gọi API YouTube để lấy thông tin video
+            $.get(
+                "https://www.googleapis.com/youtube/v3/videos",
+                {
+                    part: "statistics,snippet", // Chọn các phần dữ liệu cần lấy
+                    id: videoId, // ID video từ URL
+                    key: apiKey // API Key
+                },
+                function(response) {
+                    if (response.items.length > 0) {
+                        const stats = response.items[0].statistics;
+                        const snippet = response.items[0].snippet;
+                        
+                        // Hiển thị thông tin video lên trang
+                        $('#title').text("Title: " + snippet.title); // Tiêu đề video
+                        $('#views').text("Views: " + stats.viewCount); // Lượt xem
+                        $('#likes').text("Likes: " + stats.likeCount); // Lượt thích
+                        $('#comments').text("Comments: " + stats.commentCount); // Lượt bình luận
+                    } else {
+                        console.error("Video không tồn tại hoặc không truy cập được.");
+                        alert("Không tìm thấy video!");
+                    }
+                }
+            ).fail(function(jqXHR, textStatus, errorThrown) {
+                console.error("Lỗi API:", jqXHR.responseText); // In lỗi chi tiết từ phản hồi API
+                alert("Có lỗi khi gọi API YouTube. Kiểm tra API Key và thử lại.");
+            });
+        });
+
+
+    </script>
+</body>
+</html>

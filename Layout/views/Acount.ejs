@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load ...</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <link rel="icon" href="data:image/png;base64,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" type="image/png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+        
+        <link rel="stylesheet" href="Css/Header/Header false.css">
+        <link rel="stylesheet" href="Css/Acount.css">
+        <link rel="stylesheet" href="Css/Footer.css">
+        <link rel="stylesheet" href="Css/Default/Parameters.css">
+    
+       
+    <script type="module">  
+        import {
+            Heder,
+            Thanh_Top,
+            Load_Menu
+        } 
+            from "/Javascript/Function/Module.js";
+
+        const _Heder  = Heder();
+        const _Thanh_Top = Thanh_Top();
+        const _Load_Menu = Load_Menu();
+            document.getElementsByTagName("title")[0].innerHTML = "JBL | Acount";
+    </script>
+</head>
+
+ 
+
+<body> 
+
+    <section class="Main_">
+        <div class="Thanh_Top" id="Up_Top"><i class="bi bi-arrow-bar-up"></i></div>
+        <div class="Thanh_Chat">Chat</div>
+
+        <section class="Video_Danhgia">
+            <svg onclick="Bovideo()" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg>
+            <iframe></iframe>
+        </section>
+
+
+
+        <header>
+            <!-- <section class="KHUNG_MENU" id="PT_an_hien">
+                <nav class="Header_">
+                    <div class="_Logo_JBL"><a href="index.html"><img src="/Upload/Acount/image Admin.jpg" alt=""></a></div>
+                    <aside class="_Thanhtimkiem_sp_">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Bạn cần tìm gì ?">
+                    </aside>
+                </nav>
+            </section> -->
+
+            <!--  Header -->
+            <%- include('./partials/Header')  %>
+            <!--  -->
+
+
+
+
+
+            <!--  -->
+
+
+            <section class="KHUNG_DANHMUC_SP">
+                <nav class="_Khung__Danhmuc">
+                    <section class="Danhmuc">
+                        <a href="#"><div class="Hinh_danhmuc"><img src="/Upload/Category/Loa.webp" alt=""></div><div class="Ten_Danhmuc"><span>Loa nghe nhạc</span></div></a>
+                        <div class="Menu_"><p><a href="">Loa JBL</a></p><p><a href="">Loa JBL</a></p></div>
+                    </section>
+
+                    <section class="Danhmuc">
+                        <a href="#"><div class="Hinh_danhmuc"><img src="/Upload/Category/Tai nghe.webp" alt=""></div><div class="Ten_Danhmuc"><span>Tai nghe</span></div></a>
+                        <div class="Menu_"><p><a href="">Loa JBL</a></p><p><a href="">Loa JBL</a></p></div>
+                    </section>
+
+                    <section class="Danhmuc">
+                        <a href="#"><div class="Hinh_danhmuc"><img src="/Upload/Category/Am thanh gia dinh.webp" alt=""></div><div class="Ten_Danhmuc"><span>Âm thanh gia đình</span></div></a>
+                        <div class="Menu_"><p><a href="">Loa JBL</a></p><p><a href="">Loa JBL</a></p></div>
+                    </section>
+
+                    <section class="Danhmuc">
+                        <a href="#"><div class="Hinh_danhmuc"><img src="/Upload/Category/Gaming.webp" alt=""></div><div class="Ten_Danhmuc"><span>Sản phẩm Gaming</span></div></a>
+                        <div class="Menu_"><p><a href="">Loa JBL</a></p><p><a href="">Loa JBL</a></p></div>
+                    </section>
+
+                    <section class="Danhmuc">
+                        <a href="#"><div class="Hinh_danhmuc"><img src="/Upload/Category/Loa am thanh chuen nghiep.jpg" alt=""></div><div class="Ten_Danhmuc"><span>Âm thanh lớn</span></div>  </a>
+                        <div class="Menu_"><p><a href="">Loa JBL</a></p></div>
+                    </section>
+                </nav>
+            </section>
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- _---------------------------------------------------------------------------------------------------------------- -->
+      
+
+        <main>
+            <section class="Contener">
+                <span class="Text_Inpormation_Dom">Thông tin tài khoản</span>
+                <section class="Box_Menu">
+                    <!-- <div class="Image_ID_USER"><img src="/Upload/Acount/Acount 1.jpg" alt="PPP"></div>
+                    <span class="Name_User_ID"><span >Chào </span><span class="Name_US">Huan</span></span>
+                    <span class="User_ID"><span>ID </span><span class="ID">######</span></span> -->
+                </section>
+
+<!--  -->    
+                <section class="Box_Inpomation">
+                    <section class="Box_Check_MK">
+                        <div class="Load_s"><img src="/Data/Image_Chuyendong/Load 5.gif" alt=""></div>
+                        <span class="Text_Out"><i class="bi bi-arrow-bar-left"> Exit</i></span>
+                        <div class="Box_Input_Check">
+                            <label for="">Vui Lòng Nhập Lại Mật Khẩu</label>
+                            <input type="password" id="Password" placeholder="Password">
+                            <div class="Check_Eae_Pasword"><i class="bi bi-eye-fill"></i></div>
+                        </div>
+                        <div class="Button_Check_Delete">Xác Nhận Xóa</div>
+                    </section>
+
+                    <span class="Text_Name">Hồ Sơ Của Tôi</span>
+                    <span class="Text_Name_Title">Quản lý thông tin hồ sơ để bảo mật tài khoản</span>
+                    <div class="Dar_X_1PX"></div>
+                    
+
+                    <nav class="Form_Check" >
+                        <!-- <form action="#" id="Update_Json">
+                            <label for="Check_Name">Name</label><br>
+                            <input type="text" name="Check_Name" value="" class="Check_Name"><br><br>
+                            
+                            <label for="Check_Email">Email</label><br>
+                            <input type="text" name="Check_Email"  value="" class="Check_Mail"><br><br>
+                
+                            <label for="Check_Number_Phone">Number Phone</label><br>
+                            <input type="text" name="Check_Number_Phone"  value="" class="Check_Count_Call"><br><br>
+                
+                            <label for="Check_Birthday">Birthday</label><br>
+                            <input type="date" name="Check_Birthday"  value="" class="Check_Birthday"><br><br>
+                            
+                            <div class="Check_Sex">
+                                <span class="Text_Check_Sex_Nam">Nam</span>
+                                <span class="Text_Check_Sex_Nu">Nữ</span>
+        
+                                <div class="Check_Nam"> 
+                                    <input type="radio" name="Check_Sex" value="Nam" id="sex_male">
+                                </div>
+                
+                                <div class="Check_Nu">
+                                    <input type="radio" name="Check_Sex" value="Nu" id="sex_female">
+                                </div>
+                            </div>
+                
+                            <div class="Check_Cyty">
+                                <select name="" id="City">
+                                    <option value="">Thành Phố</option>
+                                    <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                                    <option value="Hà Nội">Hà Nội</option>
+                                </select>
+                
+                                <select name="" id="District">
+                                    <option value="">Quận Huyện</option>
+                                    <option value="Quận 12">Quận 12</option>
+                                    <option value="Quận 7">Quận 7</option>
+                                </select>
+                
+                                <select name="" id="Ward_town">
+                                    <option value="">Phường</option>
+                                    <option value="Hiệp Thành">Hiệp Thành</option>
+                                    <option value="Tân Chánh Hiệp">Tân Chánh Hiệp</option>
+                                </select>
+                            </div>
+                
+                            <div class="Text_Condition_Acount">
+                                <label for="">Địa Chỉ Chi Tiết</label><br><br>
+                                <textarea name="note" rows="5" cols="48" id="Address_Detail" value=""></textarea>
+                            </div>
+                
+                            <div class="Up"><button type="submit" >Cập Nhật</button></div>
+                            <div class="Delete_User">Delete User</div>
+                        </form> -->
+                    </nav>    
+                </section>
+
+
+<!--  -->
+                <section class="Box_Upload_Image">
+                    <nav class="Box_Check_Image">
+                        <!-- <div class="Image"><img src="/Upload/Acount/Acount 1.jpg" alt=""></div>
+                        <div class="Up_Image">
+                            <input type="file" id="Up_IMG">
+                        </div>
+                        <span class="Text_">Dung lượng tối đa là 1MB Định dạng ...PNG...JPEG</span> -->
+                    </nav>
+
+
+                </section>
+
+            </section>
+
+        </main>
+
+
+
+
+       
+
+
+    </section>
+
+
+
+</body>
+
+    <script script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/Javascript/Acount.js"></script>  
+    <script src="/Javascript/Data/Cookie/Save id user.js"></script>
+    <script src="/Javascript/Add Conect Json.js"></script>
+    <script src="/Javascript/Load Print Display User/Load Json Acount.js"></script>
+    <script src="/Javascript/Upload Conect Json.js"></script>
+    <script src="/Javascript/Status_Acount.js"></script>
+    <script src="/Javascript/Delete Conect Json.js"></script>
+    
+</html>

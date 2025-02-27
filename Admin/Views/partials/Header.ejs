@@ -1,0 +1,81 @@
+
+
+<link rel="stylesheet" href="../Admin/App/Public/CSS/Product.css">
+  
+              
+<section class="Box_Body_Conten">
+    <section class="Box_Input">
+        <label for="productInput">Chế Độ Xem</label>
+        <form action="index.php?Page=Product&Action=Filter" method="POST">
+            <select name="Status_Product" id="">
+                <option value="Full">Mặc Định</option>
+                <option value="2">Đã Duyệt</option>
+                <option value="1">Chưa Duyệt</option>
+            </select>
+            <button type="submit">Lọc Dữ Liệu</button>
+        </form>
+
+        <form action="index.php?Page=Product&Action=Upload" method="POST" id="productForm">
+            <label for="productInput">Trạng Thái</label>
+            <div>Sản Phẩm ID : <span class="ID_Product"></span></div><br>
+            <input type="hidden" value="" name="ID" class="ID_Product">        
+            <div class="View_Edit_IMG"><img style="width: 130px;" src="" alt=""></div><br>
+              
+            <select name="Status_Product" id="">
+                <option class="Resurt_Status" value="">KQ</option>
+                <option value="1">Chưa Duyệt</option>
+                <option value="2">Đã Duyệt</option>
+            </select>
+            <button type="submit">Cập Nhật Mới</button>
+        </form>
+    </section>
+
+    <section style="display: block;" class="Box_Views ">
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Name Product</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>ID Product</th>
+                    <th>IMG</th>
+                    <th>Status</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+            <tbody id="productList">
+                <?php $Count = 1 ?> 
+                <?php foreach ($Data AS $Value):  ?>
+                    <tr>
+                        <th><?php echo $Count?></th>
+                        <th><?php echo $Value['Name'] ?></th>
+                        <th><?php echo $Value['Price'] ?></th>
+                        <th><?php echo $Value['Category'] ?></th>
+                        <th><?php echo $Value['ID'] ?></th>
+                        <th><img src="<?php echo $Value['IMG'] ?>" alt=""></th>
+                        <th><?php echo $Value['Status'] == 1 ? 'Chưa Duyệt' : 'Đã Duyệt' ?></th>
+                        <th Value_Status="<?php echo $Value['Status'] ?>" Value_IMG="<?php echo $Value['IMG'] ?>"  Value_ID="<?php echo $Value['ID']?>" onclick="Click_Edit(this)"><i class="bi bi-pencil-square"></i></th>
+                        <th><a href="index.php?Page=Product&Action=Delete&ID_Delete=<?php echo $Value['ID']?>"><i class="bi bi-x-lg"></i></a></th>
+                    </tr>
+                        <?php $Count ++ ?>
+                <?php endforeach; ?>
+
+
+            </tbody>
+        </table>
+    </section>
+    
+
+
+
+</section>
+
+
+
+
+
+
+<script src="../Admin/App/Public/Javascript/Product.js"></script>

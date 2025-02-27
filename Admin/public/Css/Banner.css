@@ -1,0 +1,131 @@
+
+/* Tổng thể Box_Body_Conten */
+.Box_Body_Conten {
+    position: relative;
+    width: 100%;
+    height: 82vh;
+    display: flex;
+    font-family: var(--Font-Text, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif);
+}
+
+/* Vùng nhập liệu */
+.Box_Input {
+    position: relative;
+    width: 29%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.Box_Input form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Căn chỉnh các phần tử theo chiều ngang */
+}
+
+.Box_Input label, .Box_Input input, .Box_Input select, .Box_Input button {
+    width: 100%; /* Đảm bảo các phần tử chiếm đầy chiều ngang */
+    margin-bottom: 20px;
+}
+
+.Box_Input label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+}
+
+.Box_Input input, .Box_Input select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: var(--Font-Text);
+    transition: border-color 0.3s ease;
+}
+
+.Box_Input input:focus, .Box_Input select:focus {
+    border-color: red;
+    outline: none;
+}
+
+.Box_Input button {
+    background-color: tomato;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.Box_Input button:hover {
+    background-color: #45a049;
+}
+
+/* Vùng hiển thị */
+.Box_Views {
+    position: relative;
+    width: 69%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    border-radius: 8px;
+}
+
+/* Bảng hiển thị */
+.Box_Views table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #333;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.Box_Views th, .Box_Views td {
+    padding: 10px;
+    border: 1px solid #808080;
+    font-size: 14px;
+}
+
+.Box_Views th {
+    color: black ;
+    font-size: 15px;
+}
+
+/* Cập nhật chiều rộng ảnh */
+.Box_Views img {
+    width: 100%;
+    height: auto;
+}
+
+.Box_Views tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.Box_Views tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Định dạng thanh cuộn */
+.Box_Views::-webkit-scrollbar {
+    width: 8px;
+}
+
+.Box_Views::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.Box_Views::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

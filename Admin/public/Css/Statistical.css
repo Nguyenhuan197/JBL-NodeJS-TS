@@ -1,0 +1,61 @@
+/* Phần container chính của Box_Body_Conten */
+.Box_Body_Conten {
+    width: 95%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(230, 230, 230);
+}
+
+/* Định dạng tiêu đề */
+.Box_Body_Conten h1 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    margin-top: 5px;
+    color: #333;
+    top: 20px;
+}
+   
+/* Phần hàng ngang chứa các Box */
+.Content-Row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Khoảng cách giữa các Box */
+}
+
+/* Định dạng các Box */
+.Box {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Cấu hình cho box chứa biểu đồ tròn */
+.Box.circle-chart {
+    flex: 0 1 43%; /* Biểu đồ tròn chiếm 43% */
+}
+
+/* Cấu hình cho box chứa biểu đồ đường */
+.Box.line-chart {
+    flex: 0 1 53%; /* Biểu đồ đường chiếm 53% */
+}
+
+/* Định dạng tiêu đề trong từng box */
+.Box .Title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Định dạng canvas (biểu đồ) */
+canvas {
+    width: 100% !important; /* Đảm bảo canvas chiếm hết chiều rộng của box */
+    height: 440px !important; /* Điều chỉnh chiều cao của canvas */
+    border-radius: 0; /* Loại bỏ bo góc để tránh méo */
+    object-fit: contain; /* Đảm bảo biểu đồ không bị méo */
+}

@@ -1,0 +1,72 @@
+
+body {
+    color: black;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}   
+
+
+
+:root {
+    --Maunenchuyen :  rgb(255, 255, 255);
+    --Vanbanchuyen : black;
+    --vanbanchuyen2 : black;
+}
+
+
+.sticky {
+    position: fixed;
+    top: 0 ; width: 100%;
+    opacity: 1;
+    background-color: var(--Maunenchuyen);
+    transition: opacity 1s, background-color 1.4s;
+    z-index: 10;
+}
+
+.Load_dinh {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%; height: 100%;
+    background-color: black;
+    opacity: 1;
+    transition: opacity 1s;
+    z-index: 1500;
+}
+
+.Load_ {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px; height: 120px;
+
+    border-radius: 50%;
+    border: 8px solid transparent;
+    border-top-color: white;
+    border-bottom-color: white;
+
+    transform: rotate(0deg);
+    animation: Load 0.7s linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes Load {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.Error_404 img{
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    display: none;
+}

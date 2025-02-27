@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển Đổi Giao Diện Sáng Tối</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        /* Kiểu mặc định (sáng) */
+        body {
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            transition: background-color 1s ease, color 1s ease;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px;
+        }
+
+
+        /* Kiểu cho chế độ tối */
+        body.dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chào mừng đến với trang web của tôi!</h1>
+        <div>Thông tin</div>
+        <button id="toggleTheme">Chuyển Đổi Giao Diện</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("toggleTheme").addEventListener("click", function() {
+                document.body.classList.toggle("dark-mode");
+            });
+        });
+    </script>
+</body>
+</html>

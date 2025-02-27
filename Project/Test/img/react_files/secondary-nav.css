@@ -1,0 +1,90 @@
+.secondary-top-nav-bar {
+  position: absolute;
+  top: 56px;
+  display: flex;
+  width: 100%;
+  height: 32px;
+  padding: 0;
+  background-color: #282A35;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  scrollbar-color: transparent;
+}
+.secondary-top-nav-bar::-webkit-scrollbar {
+  display: none;
+}
+.secondary-top-nav-bar .stnb-btn, .secondary-top-nav-bar .stnb-scroll-btn {
+  display: inline-block;
+  height: 100%;
+  padding: 5px 15px;
+  font-family: "Source Sans Pro Topnav", sans-serif;
+  color: #f1f1f1;
+  text-align: middle;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  text-decoration: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: none;
+  cursor: pointer;
+}
+.secondary-top-nav-bar .stnb-btna {
+  flex: 1 0 auto;
+  max-width: fit-content;
+}
+.secondary-top-nav-bar .stnb-btn.stnb-active, .secondary-top-nav-bar .stnb-active.stnb-scroll-btn {
+  background-color: #04aa6d;
+}
+.secondary-top-nav-bar .stnb-btn:hover, .secondary-top-nav-bar .stnb-scroll-btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+.secondary-top-nav-bar .stnb-push-to-right-side {
+  margin-left: auto;
+}
+.secondary-top-nav-bar .stnb-scroll-btn {
+  position: fixed;
+  padding: 0;
+  width: 42px;
+  height: 32px;
+}
+.secondary-top-nav-bar .stnb-scroll-btn > .stnb-icon {
+  position: absolute;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 13px;
+  height: 16px;
+  width: 12px;
+  top: 50%;
+  margin-top: -8px;
+}
+.secondary-top-nav-bar .stnb-scroll-btn.stnb-right-scroll-btn {
+  right: 0;
+  background: linear-gradient(to left, #282A35 70%, transparent 100%);
+}
+.secondary-top-nav-bar .stnb-scroll-btn.stnb-right-scroll-btn:hover {
+  background: #000000;
+}
+.secondary-top-nav-bar .stnb-scroll-btn.stnb-right-scroll-btn > .stnb-icon {
+  right: 50%;
+  margin-right: -8px;
+}
+.secondary-top-nav-bar .stnb-scroll-btn.stnb-left-scroll-btn {
+  left: 0;
+  background: linear-gradient(to right, #282A35 70%, transparent 100%);
+}
+.secondary-top-nav-bar .stnb-scroll-btn.stnb-left-scroll-btn:hover {
+  background: #000000;
+}
+.secondary-top-nav-bar .stnb-scroll-btn.stnb-left-scroll-btn > .stnb-icon {
+  left: 50%;
+  margin-left: -8px;
+}

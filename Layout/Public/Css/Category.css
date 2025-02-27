@@ -1,0 +1,625 @@
+
+
+
+
+
+@media (Max-Width: 8000px){
+
+    :root {
+        --Body_Chitiet: 1390px;
+    }
+
+    .Load_Filter img {
+        position: absolute;
+        z-index: 2;
+        width: 400px;
+        top: 10%; 
+        left: 30%;
+        display: none;
+    }
+
+    /* Phần so sánh sản phẩm */
+    .Box_Compare_Product_Count_2 {
+        display: none;
+        position: absolute;
+        position: fixed;
+        width: 57%;
+        height: 60%;
+        z-index: 1234;
+        border-radius: 2%;
+        transform: translate(-50%,-50%);
+        left: 50%; top: 50%;
+        background-color: #e9e9e9;
+    }
+
+    .Icon_Box_Delete_Box {
+        position: absolute;
+        left: 97%; top: 1%;
+        width: 25px; height: 25px;
+        fill: rgb(72, 72, 72);
+    }
+
+    .Box_Product_Filter__ {
+        position: relative;
+        width: 30%; min-height: 87%;
+        background-color: white;
+       transform: translate(-50%,-0%);
+       left: 33%; top: 5%;
+       float: left; margin: 15px;
+    }
+
+    .Image_Filter img {
+        position: absolute;
+        width: 100%; height: 70%;
+    }
+
+    
+    .Name_Product_Filter {
+        position: absolute;
+        font-size: 18px;
+        width: 95%; left: 5%;
+        color: black;
+        top: 72%; 
+
+        display: -webkit-box; /* Thiết lập hiển thị dạng box */
+        -webkit-box-orient: vertical; /* Thiết lập hướng của box là dọc */
+        overflow: hidden; /* Ẩn phần văn bản vượt quá giới hạn */
+        text-overflow: ellipsis; /* Thêm dấu "..." nếu văn bản vượt quá giới hạn */
+        -webkit-line-clamp: 2; /* Giới hạn số dòng là 2 */
+    }
+
+
+    .Text_output_Product {
+        position: absolute;
+        font-size: 18px;
+        font-weight: bold;
+        left: 5%; top: 85%;
+        color: tomato;
+    }
+
+    main {
+        position: relative;
+        margin: 0 auto; 
+        width: var(--Body_Chitiet);
+        height: auto;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        border: 0.1px solid rgb(228, 228, 228);
+    }
+
+    .Contion_Dom_Category {
+        position: relative;
+        width: 100%;
+        height: 50px;
+    }
+
+    .Text_navigation {
+        position: absolute;
+        transform: translate(-0%,-50%);
+        top: 50%; left: 1%;     
+        font-size: 18px;
+        color: rgb(111, 111, 111);
+    }
+
+
+    .Container {
+        display: grid; 
+        grid-template-columns: 22% 78%;
+        grid-template-rows:
+            369px 
+            160px
+            /* minmax(1000px,auto) */
+            auto
+            auto;
+    }
+
+    .Box_Slide_1 {
+        grid-column: 1/3;
+        grid-row: 1/2;
+    }
+
+    .Box_Slide_1 img {
+        width: 100%;
+        height: 100%;
+    }
+
+
+/*  */
+    .Box_Menu_Category_2 {
+        margin: 10px 0px;
+        grid-column: 1/3;
+        grid-row: 2/3;
+        background-color: rgb(255, 255, 255);
+    } 
+
+    .Box_Type_Product_Category {
+        position: relative;
+        width: 56%;
+        height: 30%;
+        left: 22%; top: 30px;
+    }
+
+    .Type_Product_Category {
+        position: relative;
+        font-size: 16px;
+        padding: 0px 20px;
+        text-align: center;
+        margin: 0px 8px;
+        float: left;
+        line-height: 40px;
+        border: 1px solid rgb(201, 201, 201);
+        border-radius: 10px;
+        color: rgb(82, 82, 82);
+    }
+
+    .Text_arrange {
+        position: absolute;
+        font-size: 16px;
+        color: rgb(82, 82, 82);
+        padding: 6px 10px;
+        border-radius: 10px;
+        left: 22%; top: 27%;
+        font-weight: bold;
+    }
+
+    .Text_default {
+        position: absolute;
+        font-size: 16px;
+        color: tomato;
+        padding: 6px 13px;
+        border: 1px solid tomato;
+        border-radius: 10px;
+        left: 28%; top: 27%;
+    }
+
+    .Text_arrange_A-Z {
+        position: absolute;
+        font-size: 16px;
+        color: rgb(82, 82, 82);
+        padding: 6px 13px;
+        border: 1px solid rgb(201, 201, 201);
+        border-radius: 10px;
+        left: 38%; top: 27%;
+    }
+    
+    .Text_arrange_Z-A {
+        position: absolute;
+        font-size: 16px;
+        color: rgb(82, 82, 82);
+        padding: 6px 13px;
+        border: 1px solid rgb(201, 201, 201);
+        border-radius: 10px;
+        left: 43%; top: 27%;
+    }
+
+    .Text_Money_ascending {
+        position: absolute;
+        font-size: 16px;
+        color: rgb(82, 82, 82);
+        padding: 6px 13px;
+        border: 1px solid rgb(201, 201, 201);
+        border-radius: 10px;
+        left: 48%; top: 27%;
+    }
+
+    .Text_Money_decreasing {
+        position: absolute;
+        font-size: 16px;
+        color: rgb(82, 82, 82);
+        padding: 6px 13px;
+        border: 1px solid rgb(201, 201, 201);
+        border-radius: 10px;
+        left: 56.5%; top: 27%;
+    }
+
+    .Text_Product_New {
+        position: absolute;
+        font-size: 16px;
+        color: rgb(82, 82, 82);
+        padding: 6px 13px;
+        border: 1px solid rgb(201, 201, 201);
+        border-radius: 10px;
+        left: 65.5%; top: 27%;
+    }
+
+    .Text_Product_old {
+        position: absolute;
+        font-size: 16px;
+        color: rgb(82, 82, 82);
+        padding: 6px 13px;
+        border: 1px solid rgb(201, 201, 201);
+        border-radius: 10px;
+        left: 72.5%; top: 27%;
+    }
+
+/*  */
+
+    /* Phần khung trái thông tin tùy chọn */
+
+
+    .Box_Information_Product_Category {
+        position: relative;
+        grid-column: 1/2;
+        grid-row: 3/4;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .Text_Price_filter {
+        position: absolute;
+        font-size: 22px;
+        color: red;
+        font-weight: bold;
+        left: 10%; top: 20px;
+    }
+
+    .Count_Product_Volume1 {
+        position: absolute;
+        left: 3%;
+        top: 86px;
+        font-size: 18px;
+    }
+
+
+
+    .Volum_Contine_Money {
+        position: absolute;
+        left: 3%;
+        top: 130px;
+    }
+
+    .Volum_Contine_Money input {
+        width: 200px;
+        height: 15px;
+
+        -webkit-appearance: none; /* Xóa kiểu mặc định của slider trên trình duyệt Webkit */
+        background: #ddd; /* Màu nền của thanh slider */
+        border-radius: 5px; /* Bo góc cho thanh slider */
+    }
+
+ 
+    .Volum_Contine_Money input::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Xóa kiểu mặc định của thumb */
+        appearance: none; /* Xóa kiểu mặc định của thumb */
+        width: 25px; /* Chiều rộng của thumb */
+        height: 25px; /* Chiều cao của thumb */
+        border-radius: 50%; /* Bo góc cho thumb */
+        background:  tomato; /* Màu của thumb */
+        cursor: pointer; /* Hiển thị con trỏ như tay khi hover */
+    }
+    
+    .Volum_Contine_Money input::-moz-range-thumb {
+        width: 25px; /* Chiều rộng của thumb cho Firefox */
+        height: 25px; /* Chiều cao của thumb cho Firefox */
+        border-radius: 50%; /* Bo góc cho thumb */
+        background: #4CAF50; /* Màu của thumb cho Firefox */
+        cursor: pointer; /* Hiển thị con trỏ như tay khi hover */
+    }
+
+    .Box_Cotener_ADD {
+        position: absolute;
+        width: 90%; height: 70px;
+        left: 5%; top: 200px;
+    }
+
+    .Printf_Name_Check {
+        position: absolute;
+        padding: 10px 16px;
+        width: auto;
+        font-size: 18px;
+        background-color: rgb(226, 226, 226);
+        border-radius: 12px;
+
+    }
+
+    .Button_Apply_Filter {
+        position: absolute;
+        left: 8%; top: 320px;
+        padding: 14px 90px;
+        background-color: tomato;
+        color: white;
+        border-radius: 5px;
+        transition: color 1s;
+        font-size: 20px;
+    }
+
+    .Button_Apply_Filter:hover {
+        background-image: linear-gradient(to right top, #dd0a0a, #df2721, #df3832, #df4742, #de5451, #dc5a58, #d9605f, #d66666, #d26868, #ce6969, #ca6b6b, #c66c6c);
+        color: white;
+    }
+
+
+    /*  */ 
+    .Box_Product_Category {
+        grid-column: 2/3;
+        grid-row: 3/4;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .Container_Box_Product_Category {
+        position: relative;
+        width: 100%; top: -7%;
+        height: 100%;
+    }
+
+    .Waring_None_Product {
+        display: none;
+        position: absolute;
+        width: 260px; height: 320px;
+        z-index: 2;
+        transform: translate(-50%,0%);
+        left: 50%; top: 5%;
+    }
+
+    .Waring_None_Product img{
+        position: absolute;
+        width: 100%; height: 82%;
+        border-radius: 50%;
+    }
+
+    .Waring_None_Product span {
+        position: absolute;
+        font-size: 26px;
+        transform: translate(-50%,-0%);
+        left: 50%; bottom: 2%;
+        text-align: center;
+        width: 100%;
+        color: tomato;
+    }
+
+
+    .Box_Product {
+        position: relative;
+        width: 24%; height: 390px;
+        margin: 20px 0.4%;
+        float: left;
+        border: 1px solid rgb(231, 231, 231);
+        transition: background-color 2s;
+        overflow: hidden;
+
+    }
+
+    .image_Product img {
+        position: absolute;
+        width: 95%; height: 60%;
+        left: 2.5%;
+        transition: transform 1s;
+    }
+
+    .image_Product img:hover {
+        transform: scale(1.03);
+        transition: transform 1s;
+    }
+
+    .Name_Product_Categorry {
+        position: absolute;
+        width: 95%; left: 2.5%;
+        top: 62%; font-size: 18px;
+        color: black;
+
+        display: -webkit-box; /* Thiết lập hiển thị dạng box */
+        -webkit-box-orient: vertical; /* Thiết lập hướng của box là dọc */
+        overflow: hidden; /* Ẩn phần văn bản vượt quá giới hạn */
+        text-overflow: ellipsis; /* Thêm dấu "..." nếu văn bản vượt quá giới hạn */
+        -webkit-line-clamp: 2; /* Giới hạn số dòng là 3 */
+    }
+
+    .Price_Product_Category {
+        position: absolute;
+        left: 3%; top: 75%;
+        font-size: 18px; color: red;
+        font-weight: bold;
+    }
+
+    .Pridce_Reduce_Product del{
+        position: absolute;
+        left:46%; top: 76%;
+        color: rgb(156, 156, 156);
+        font-size: 13px; 
+    }
+
+    .Capacity_Product_Category {
+        position: absolute;
+        left: 3%; top: 83%;
+        font-size: 18px; color: rgb(107, 107, 107);
+    }
+
+    .Box_Star {
+        position: absolute;
+        left: 3%; bottom: 1%;
+        width: 80px;
+        height: 17px;
+    }
+
+    .icon_STAR_Product_Category   svg {
+        position: relative;
+        width: 18%; height: 100%;
+        margin: 0px 1%;
+        fill: gold; float: left;
+    }
+
+    .Text_Compere {
+        position: absolute;
+        right: 3%; bottom: 1.5%;
+        color: rgb(107, 107, 107);
+
+    }
+
+    .Check_Radio_compare_Product input {
+        position: absolute;
+        right: 26%; bottom: 1.5%;
+    }
+
+
+/* Box tin tức người dùng */
+
+
+    .Box_News_Product_Category {
+        grid-column: 1/3;
+        grid-row: 4/5;
+        overflow: hidden;
+        border: 0.1px solid rgb(250, 250, 250);
+        background-color: rgb(247, 247, 247);
+    }
+
+    .Box_Text_News_Product_Category {
+        position: relative;
+        width: 98%;
+        height: 450px;
+        left: 1%;
+        overflow: hidden;
+    }
+
+    h2 {
+        position: relative;
+        left: 3%;
+        color: tomato;
+    }
+
+    .Text_News {
+        position: relative;
+        font-size: 20px;
+        line-height: 30px;
+        margin: 4px 0px;
+    }
+
+    .Image_News img {
+        position: relative;
+        margin: 4px 0px;
+        width: 99%; left: 0.5%;
+    }
+
+
+    .Botton_See_More_Product {
+        position: absolute;
+        font-size: 18px;
+        padding: 12px 35px;
+        background-color: tomato;
+        border-radius: 13px;
+        color: white;
+        transform: translate(-0%,-50%);
+        left: 45%; top: 98%;
+        transition: background-color 1s , color 1s;
+    }
+
+    .Botton_See_More_Product:hover {
+        background-color: rgb(72, 72, 72);
+        color: white;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Giao diện điện thoai */
+
+
+@media (Max-Width: 540px){
+
+    :root {
+        --Body_Chitiet: 1390px;
+    }
+
+
+    main {
+        position: relative;
+        margin: 0 auto; 
+        width: auto;
+        height: auto;
+    }
+
+
+    .Contion_Dom_Category {
+        position: relative;
+        width: 100%;
+        height: 60px;
+        background-color: rgb(107, 107, 107);
+    }
+
+
+    .Container {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        grid-template-rows:
+            140px 
+            80px
+            70px
+            minmax(1000px,auto)
+            400px;
+    }
+
+    .Box_Slide_1 {
+        grid-column: 1/3;
+        grid-row: 1/2;
+        background-color: red;
+    }
+
+    .Box_Menu_Category_2 {
+        grid-column: 1/3;
+        grid-row: 2/3;
+        background-color: green;
+    } 
+
+    .Box_Information_Product_Category {
+        position: relative;
+        grid-column: 1/3;
+        grid-row: 3/4;
+        background-color: rgb(242, 255, 160);
+    }
+
+
+
+
+    /*  */
+
+    .Box_Product_Category {
+        position: relative;
+        grid-column: 1/3;
+        grid-row: 4/5;
+    }
+
+    .Container_Box_Product_Category {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    .Box_Product {
+        position: relative;
+        width: 48%; height: 200px;
+        margin: 10px 1%;
+        float: left;
+        background-color: black;
+    }
+
+
+
+/*  */
+
+
+    .Box_News_Product_Category {
+        grid-column: 1/3;
+        grid-row: 5/6;
+        background-color: rgb(46, 14, 99);
+    }
+
+}
+

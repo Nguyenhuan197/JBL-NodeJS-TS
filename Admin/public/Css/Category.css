@@ -1,0 +1,190 @@
+/* Tổng thể Box_Body_Conten */
+.Box_Body_Conten {
+    position: relative;
+    width: 100%;
+    height: 87vh;
+    display: flex;
+    font-family: var(--Font-Text, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif);
+}
+
+/* Vùng nhập liệu */
+.Box_Input {
+    position: relative;
+    width: 29%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+    border-right: 1px solid #ccc;
+}
+
+.Box_Input form {
+    display: flex;
+    flex-direction: column;
+}
+
+.Box_Input label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+.Box_Input input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: var(--Font-Text);
+}
+
+.Box_Input button {
+    background-color: tomato;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.Box_Input button:hover {
+    background-color: #ff6347;
+}
+
+
+
+.Box_Input label ,.Box_Input select, .Box_Input button {
+    width: 95%; 
+    margin-bottom: 20px;
+}
+
+.Box_Input input {
+    width: 88%; 
+    margin-bottom: 20px;
+}
+
+.Box_Input label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+}
+
+.Box_Input input, .Box_Input select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: var(--Font-Text);
+    transition: border-color 0.3s ease;
+}
+
+.Box_Input input:focus, .Box_Input select:focus {
+    border-color: red;
+    outline: none;
+}
+
+
+
+
+
+
+
+
+/* Điều chỉnh chung cho Box_Views */
+.Box_Views {
+    position: relative;
+    width: 69%;
+    height: 87vh;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Tiêu đề h2 */
+.Box_Views h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: tomato;
+}
+
+/* Bảng hiển thị */
+.Box_Views table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    color: #333;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.Box_Views th, .Box_Views td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    text-align: center; /* Căn giữa nội dung */
+}
+
+.Box_Views th {
+    background-color: tomato; /* Màu nền tomato */
+    color: white;
+    font-weight: bold;
+}
+
+
+
+/* Điều chỉnh liên kết trong bảng */
+.Box_Views a {
+    color: tomato;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.Box_Views a:hover {
+    background-color: #ff6347; /* Màu nền đậm hơn khi hover */
+    color: white;
+}
+
+/* Biểu tượng trong thẻ a */
+.Box_Views a i {
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+/* Định dạng danh sách ul và li */
+.Box_Views ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+.Box_Views li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+    text-align: center; /* Căn giữa nội dung */
+}
+
+/* Điều chỉnh thanh cuộn */
+.Box_Views::-webkit-scrollbar {
+    width: 8px;
+}
+
+.Box_Views::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.Box_Views::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+ 

@@ -1,0 +1,67 @@
+/* Định dạng phần container chính */
+.Box_Body_Conten {
+    width: 95%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-y: auto; /* Kích hoạt thanh cuộn dọc nếu nội dung quá dài */
+    max-height: 80vh; /* Giới hạn chiều cao của container */
+}
+
+/* Định dạng tiêu đề */
+.Box_Body_Conten h2 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* Định dạng các Box */
+.Box {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Định dạng bảng */
+.OrderTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.OrderTable th, .OrderTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.OrderTable th {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+.OrderTable .ProductImage {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Định dạng nút "View Details" */
+.ViewDetails {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ViewDetails:hover {
+    background-color: #45a049;
+}

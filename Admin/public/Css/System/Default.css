@@ -1,0 +1,298 @@
+/* Link: ERD https://lucid.app/lucidchart/a09ce341-f518-4089-8e23-228c5f85b940/edit?viewport_loc=-1892%2C-901%2C2486%2C1452%2C0_0&invitationId=inv_1148554e-4ddb-416a-b2d6-bbd85d62c515 */
+
+
+:root {
+    --background-Body:  rgb(230, 230, 230);
+    --background-Box_Navication: #d1d1d1;
+    --background-Box_Menu: tomato;
+    --background-Box_Body_Conten:  rgb(230, 230, 230);
+
+    /* Color */
+    --Color-bright-interface : black;
+    --Color-dark-interface : white;
+
+    /* Font Text */
+    --Font-Text : Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+    /* Border */
+    --Border-bright-interface : 1px solid black;
+    --Border-dark-interface : 1px solid white;
+}
+   
+   
+body {
+    background-color: tomato;
+    color: white;
+    margin: 0px;    
+    transition: background-color 0.3s, color 0.3s;
+
+    font-family: var(--Font-Text);
+    background-color: var(--background-Body);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+/* CSS cho chế độ tối */
+body.dark-mode {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Các phần khác */
+.Body {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    grid-template-rows: 13vh 87vh;
+}
+
+.Box_Menu {  
+    position: relative;
+    grid-column: 1/3;
+    grid-row: 1/2;
+    background-color: var(--background-Box_Menu);
+    color: var(--Color-bright-interface);
+}
+
+.Box_Navication {
+    position: relative;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    background-color: var(--background-Box_Navication);
+    color: var(--Color-bright-interface);
+    transition: background-color 0.7s , color 0.7s;
+}
+
+.Box_Body_Conten {
+    position: relative;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    background-color: var(--background-Box_Body_Conten);
+    color: var(--Color-bright-interface);
+    transition: background-color 0.7s , color 0.7s;
+    overflow-y: auto; 
+}
+  
+
+/* bên dưới là phần chỉnh màu cho Dark Mode */
+
+body.dark-mode .Box_Body_Conten {
+    background-color: black;
+    color: var(--Color-dark-interface);
+}
+
+body.dark-mode .Box_Navication {
+    background-color: rgb(230, 230, 230);
+    color: var(--Color-bright-interface);
+}
+
+
+body.dark-mode .Box_Value {
+    border: 1px solid white; 
+}
+
+
+
+/* ---------------------------------------------------- */
+
+/* CSS Header */
+.Image_Logo img {
+    position: absolute;
+    width: 63px; height: 48px;
+    left: 1%; top: 50%;
+    background-color: white;
+    transform: translate(-0%,-50%);
+}
+
+.Imae_User img {
+    position: absolute;
+    right: 3%; top: 15%;
+    width: 42px; height: 42px;
+    border-radius: 50%;
+
+}
+
+
+.Name_User {
+    position: absolute;
+    font-size: 14px;
+    top: 70%; right: 2.2%;
+    color: white;
+}
+
+
+.Icon_Dar_More i {
+    position: absolute;
+    color: var(--Color-dark-interface);
+    right: 9%; 
+    top: 10%;
+    font-size: 25px;
+}
+
+.Name_Theme {
+    position: absolute;
+    color: var(--Color-dark-interface);
+    right: 9.36%; 
+    top: 44%;
+    font-size: 10px;
+
+}
+
+
+
+.Icon_Nobell i {
+    position: absolute;
+    color: var(--Color-dark-interface);
+    right: 15%; top: 28%;
+    font-size: 22px;
+}
+
+.Icon_Email i{
+    position: absolute;
+    color: var(--Color-dark-interface);
+    right: 19%; top: 28%;
+    font-size: 22px;
+}
+
+.Icon_Gitthub i {
+    position: absolute;
+    color: var(--Color-dark-interface);
+    right: 23%; top: 28%;
+    font-size: 22px;
+}
+
+
+.Box_Count_Nobel {
+    position: absolute;
+    color: var(--Color-dark-interface);
+    right: 14%; top: 10%;
+    font-size: 10px;
+
+    background-color: white;
+    border-radius: 50%;
+    color: black;
+    padding: 3.8px;
+}
+
+.Box_Count_Email {
+    position: absolute;
+    color: var(--Color-dark-interface);
+    right: 17.8%; top: 10%;
+    font-size: 10px;
+    
+    background-color: white;
+    border-radius: 50%;
+    color: black;
+    padding: 3.8px;
+}
+
+
+.Box_Count_Gitthub {
+    position: absolute;
+    color: var(--Color-dark-interface);
+    right: 21.8%; top: 10%;
+    font-size: 10px;
+    background-color: white;
+    border-radius: 50%;
+    color: black;
+    padding: 3.8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS Menu */
+/* --------------------------------------------- */
+
+.Box_Loacation_Menu {
+    position: absolute;
+    width: 100%; height: auto;
+    background-color: tomato;
+    left: 0%;
+}
+
+.Box_Loacation_Menu ul {
+    position: absolute;
+    left: -32px; top: 6px;
+}
+
+.Box_Loacation_Menu ul li {
+    list-style: none;
+    width: 100%; height: 100%;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.Box_Loacation_Menu ul li span {
+    margin: 0px 10px;
+}
+
+.Name_Dom {
+    position: absolute;
+    text-align: center;
+    /* background-color: tomato; */
+    width: 130px;
+
+}
+
+
+
+
+
+/* ----------------------------------------------------------------- */
+/* CSS  Mặc định Input Main*/
+
+.Input_ADD input::placeholder {
+    font-size: 20px; color: black;
+    border: 0px;
+}
+
+.Input_ADD input:focus {
+    border: none; outline: none;
+}
+
+
+/* Phần này là kích thước mặc định cho form input nha css 1 lần rôi link qua  */
+/* Bên trang kia chỉ có thay đổi  vị trí thôi  */
+/* Form Input Mặc định */
+.Input_ADD input {
+    /* position: absolute;
+    left: 5%; top: 0px; */
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    border: 0px; background-color: rgb(245, 245, 245);
+    padding: 18px 20px;
+    width: 80%; height: auto;
+    padding-right: 25px;
+    margin-top: 45px;
+    color: black;
+}
+
+.Input_ADD select {
+    /* position: absolute;
+    left: 5%; top: 0px; */
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    border: 0px; background-color: rgb(245, 245, 245);
+    padding: 18px 20px;
+    width: 89%; height: auto;
+    padding-right: 25px;
+    margin-top: 45px;
+    color: black;
+}
+
+
+/*  */
+

@@ -1,0 +1,378 @@
+var SecondaryTopNavBar = {
+  _element: document.querySelector('.secondary-top-nav-bar'),
+  _leftScrollBtnElm: null,
+  _rightScrollBtnElm: null,
+  _location: null,
+  _scrollSpeed: 1,
+  _scrollInterval: null,
+  _debug: null,
+  _billingBaseUrl: 'https://billing.w3schools.com',
+  _groupsApiBaseUrl: 'https://groups-api.w3sapi.com',
+};
+
+window.SecondaryTopNavBar = SecondaryTopNavBar;
+
+SecondaryTopNavBar._isDebugMode = function () {
+  if (SecondaryTopNavBar._debug !== null) {
+    return SecondaryTopNavBar._debug;
+  }
+
+  if (
+    localStorage.getItem('SecondaryTopNavBar.debug') === 'true'
+  ) {
+    SecondaryTopNavBar._debug = true;
+  } else {
+    SecondaryTopNavBar._debug = false;
+  }
+
+  return SecondaryTopNavBar._debug;
+};
+
+SecondaryTopNavBar._logDebug = function (message, data) {
+  if (!SecondaryTopNavBar._isDebugMode()) {
+    return;
+  }
+
+  if (typeof data === 'undefined') {
+    console.log('SecondaryTopNavBar -> ' + message);
+  } else {
+    console.log('SecondaryTopNavBar -> ' + message, data);
+  }
+}
+
+SecondaryTopNavBar._findInnerElements = function (parentElement, queryStr, callback) {
+  var output = [];
+
+  var hasCallback = typeof callback !== 'undefined';
+
+  var elements = parentElement.querySelectorAll(queryStr);
+
+  for (var index = 0; index < elements.length; index++) {
+    output.push(elements[index]);
+
+    if (hasCallback) {
+      callback(elements[index], index);
+    }
+  }
+
+  return output;
+};
+
+SecondaryTopNavBar.initOnLoad = function () {
+  SecondaryTopNavBar._logDebug('initOnLoad');
+
+  SecondaryTopNavBar._attachScroll();
+};
+
+SecondaryTopNavBar._debugScroll = function () {
+  var elm = SecondaryTopNavBar._element;
+
+  SecondaryTopNavBar._logDebug('_debugScroll: ', {
+    'clientWidth': elm.clientWidth,
+    'scrollWidth': elm.scrollWidth,
+    'scrollLeft': elm.scrollLeft,
+  });
+}
+
+SecondaryTopNavBar._scroll = function (direction) {
+  window.clearInterval(SecondaryTopNavBar._scrollInterval);
+  SecondaryTopNavBar._scrollSpeed = 1;
+
+  SecondaryTopNavBar._scrollInterval = window.setInterval(function () {
+    var elm = SecondaryTopNavBar._element;
+
+    SecondaryTopNavBar._scrollSpeed = SecondaryTopNavBar._scrollSpeed * 1.1;
+
+    if (SecondaryTopNavBar._scrollSpeed > 10) {
+      SecondaryTopNavBar._scrollSpeed = 10;
+    }
+
+    var stopScroll = false;
+    var newScrollLeftValue = 0;
+
+    if (direction === 'right') {
+      var maxScrollRight = elm.scrollWidth - elm.clientWidth;
+      var scrollRight = maxScrollRight - elm.scrollLeft;
+
+      if (scrollRight > 0) {
+        newScrollLeftValue = elm.scrollLeft + SecondaryTopNavBar._scrollSpeed;
+
+        // SecondaryTopNavBar._logDebug('right', {
+        //   maxScrollRight,
+        //   scrollRight,
+        //   newScrollLeftValue,
+        //   'scrollRight - SecondaryTopNavBar._scrollSpeed': scrollRight - SecondaryTopNavBar._scrollSpeed,
+        // });
+
+        if ((scrollRight - SecondaryTopNavBar._scrollSpeed) <= 0) {
+          newScrollLeftValue = maxScrollRight;
+          stopScroll = true;
+        }
+
+        elm.scrollLeft = newScrollLeftValue;
+
+        SecondaryTopNavBar._updateScrollBtnElmsVisibility();
+      } else {
+        stopScroll = true;
+      }
+    } else { // left
+      if (elm.scrollLeft > 0) {
+        newScrollLeftValue = elm.scrollLeft - SecondaryTopNavBar._scrollSpeed;
+
+        if (newScrollLeftValue <= 0) {
+          newScrollLeftValue = 0;
+          stopScroll = true;
+        }
+
+        elm.scrollLeft = newScrollLeftValue;
+
+        SecondaryTopNavBar._updateScrollBtnElmsVisibility();
+      } else {
+        stopScroll = true;
+      }
+    }
+
+    if (stopScroll) {
+      SecondaryTopNavBar._stopScroll();
+    }
+  }, 10);
+}
+
+SecondaryTopNavBar._stopScroll = function () {
+  window.clearInterval(SecondaryTopNavBar._scrollInterval);
+  SecondaryTopNavBar._scrollSpeed = 1;
+  SecondaryTopNavBar._updateScrollBtnElmsVisibility();
+}
+
+SecondaryTopNavBar._attachScroll = function () {
+  SecondaryTopNavBar._logDebug('_attachScroll');
+
+  SecondaryTopNavBar._leftScrollBtnElm = SecondaryTopNavBar._element.querySelector('.stnb-left-scroll-btn');
+
+  SecondaryTopNavBar._rightScrollBtnElm = SecondaryTopNavBar._element.querySelector('.stnb-right-scroll-btn');
+
+  SecondaryTopNavBar._debugScroll();
+
+  var scrollDebouncer = null;
+
+  SecondaryTopNavBar._element.addEventListener('scroll', function (event) {
+    clearTimeout(scrollDebouncer);
+
+    scrollDebouncer = setTimeout(function () {
+      SecondaryTopNavBar._logDebug('on scroll event');
+
+      SecondaryTopNavBar._debugScroll();
+    }, 50);
+  });
+
+  SecondaryTopNavBar._updateScrollBtnElmsVisibility();
+
+  window.addEventListener('resize', SecondaryTopNavBar._updateScrollBtnElmsVisibility);
+
+  SecondaryTopNavBar._leftScrollBtnElm.addEventListener('mousedown', function (event) {
+    SecondaryTopNavBar._scroll('left');
+  });
+
+  SecondaryTopNavBar._leftScrollBtnElm.addEventListener('mouseup', function (event) {
+    SecondaryTopNavBar._stopScroll();
+  });
+
+  SecondaryTopNavBar._leftScrollBtnElm.addEventListener('mouseout', function (event) {
+    SecondaryTopNavBar._stopScroll();
+  });
+
+  SecondaryTopNavBar._rightScrollBtnElm.addEventListener('mousedown', function (event) {
+    SecondaryTopNavBar._scroll('right');
+  });
+
+  SecondaryTopNavBar._rightScrollBtnElm.addEventListener('mouseup', function (event) {
+    SecondaryTopNavBar._stopScroll();
+  });
+
+  SecondaryTopNavBar._rightScrollBtnElm.addEventListener('mouseout', function (event) {
+    SecondaryTopNavBar._stopScroll();
+  });
+};
+
+SecondaryTopNavBar._updateScrollBtnElmsVisibility = function () {
+  var elm = SecondaryTopNavBar._element;
+
+  if (elm.clientWidth >= elm.scrollWidth) {
+    SecondaryTopNavBar._leftScrollBtnElm.style.display = 'none';
+    SecondaryTopNavBar._rightScrollBtnElm.style.display = 'none';
+  } else {
+    if (elm.scrollLeft > 0) {
+      SecondaryTopNavBar._leftScrollBtnElm.style.display = 'block';
+    } else {
+      SecondaryTopNavBar._leftScrollBtnElm.style.display = 'none';
+    }
+
+    var scrollRight = elm.scrollWidth - elm.clientWidth - elm.scrollLeft;
+
+    if (scrollRight > 0) {
+      SecondaryTopNavBar._rightScrollBtnElm.style.display = 'block';
+    } else {
+      SecondaryTopNavBar._rightScrollBtnElm.style.display = 'none';
+    }
+  }
+}
+
+SecondaryTopNavBar._highlightActiveLinks = function () {
+  var subdomain = SecondaryTopNavBar._location.hostname.split('.')[0];
+
+  var pathname = SecondaryTopNavBar._location.pathname;
+
+  var linkId = null;
+
+  if (subdomain.startsWith('pathfinder')) {
+    linkId = pathname.startsWith('/learningpaths') ? 'my-learning-link' : 'pathfinder-link';
+  } else if (subdomain.startsWith('spaces')) {
+    linkId = pathname.startsWith('/domains') ? 'domains-link' : 'spaces-link';
+  } else if (subdomain === 'my-learning' || subdomain.startsWith('myl')) {
+    if (pathname.startsWith('/certificates')) {
+      linkId = 'certificates-link';
+    } else {
+      linkId = 'my-learning-link';
+    }
+  } else if (subdomain.startsWith('profile')) {
+    var profilePaths = {
+      '/profile': true,
+      '/settings': true,
+      '/editprofile': true,
+      '/edit-profile': true
+    };
+
+    if (typeof profilePaths[pathname] !== 'undefined') {
+      linkId = 'profile-link';
+    }
+  } else if (subdomain.startsWith('billing')) {
+    linkId = 'billing-link';
+  }
+
+  var linkElm = null;
+
+  if (linkId) {
+    linkElm = SecondaryTopNavBar._element.querySelector('#' + linkId);
+
+    if (linkElm) {
+      // first remove active class if present
+      SecondaryTopNavBar._findInnerElements(SecondaryTopNavBar._element, '.stnb-active', function (activeLinkElm) {
+        activeLinkElm.classList.remove('stnb-active');
+      });
+
+      linkElm.classList.add('stnb-active');
+    };
+  }
+
+  SecondaryTopNavBar._logDebug('_highlightActiveLinks -> linkId, linkElm: ', {
+    linkId: linkId,
+    linkElm: linkElm,
+  });
+}
+
+SecondaryTopNavBar._applyNoUpsellUiTweaks = function () {
+  // action can't be reverted
+
+  SecondaryTopNavBar._findInnerElements(SecondaryTopNavBar._element, '.stnb-paid-service', function (paidServiceElm) {
+    paidServiceElm.remove();
+  });
+}
+
+SecondaryTopNavBar._applyHasClassroomUiTweaks = function () {
+  // action can't be reverted
+
+  var teacherLink = SecondaryTopNavBar._element.querySelector('#teachers-link');
+  teacherLink.href = 'https://pathfinder.w3schools.com/admin';
+}
+
+SecondaryTopNavBar._applyUserSessionUiTweaks = function (prs) {
+  SecondaryTopNavBar._logDebug('_applyUserSessionUiTweaks -> prs: ', prs);
+
+  var loggedIn = prs.loggedIn;
+  var subscriptionPlan = prs.subscriptionPlan;
+
+  if (loggedIn) {
+    if (subscriptionPlan === 'free') {
+      SecondaryTopNavBar._tweakBillingLinkForFreeUsers();
+    } else {
+      SecondaryTopNavBar._tweakBillingLinkForPaidUsers();
+    }
+
+    // fetch user groups to determine if user has classroom and apply ui tweaks
+    Util.fetch({
+      context: 'SecondaryTopNavBar._applyUserSessionUiTweaks',
+      method: 'GET',
+      url: SecondaryTopNavBar._groupsApiBaseUrl + '/groups-api/member-groups',
+      prepareResponseData: true,
+      withUserSession: true,
+      handleUserSessionRefresh: false,
+      handleUserSessionRedirection: false,
+      callback: function (reqRes) {
+        if (reqRes.error.code !== '0') {
+          return;
+        }
+        var data = reqRes.data;
+        var groups = data.memberGroups;
+        var hasClassroom = groups.some(function (groupData) {
+          if (!groupData.group || !groupData.member) {
+            return false;
+          }
+          return groupData.group.serviceId === 'w3s-organizations' && (groupData.member.role === 'admin' || groupData.member.role === 'owner')
+        });
+
+        if (hasClassroom) {
+          SecondaryTopNavBar._applyHasClassroomUiTweaks();
+        }
+      }
+    });
+    
+  } else { // anonymous
+    SecondaryTopNavBar._tweakBillingLinkForFreeUsers();
+  }
+};
+
+SecondaryTopNavBar._tweakBillingLinkForFreeUsers = function () {
+  // SecondaryTopNavBar._logDebug('_tweakBillingLinkForFreeUsers');
+  var blilingLinkElm = SecondaryTopNavBar._element.querySelector('#billing-link');
+  blilingLinkElm.href = SecondaryTopNavBar._billingBaseUrl + '/products/spaces?frequency=monthly';
+  blilingLinkElm.querySelector('.-label').textContent = 'Pricing';
+  blilingLinkElm.querySelector('.shining-stars').classList.remove('w3-hide');
+};
+
+SecondaryTopNavBar._tweakBillingLinkForPaidUsers = function () {
+  // SecondaryTopNavBar._logDebug('_tweakBillingLinkForPaidUsers');
+  var blilingLinkElm = SecondaryTopNavBar._element.querySelector('#billing-link');
+  blilingLinkElm.href = SecondaryTopNavBar._billingBaseUrl + '/account';
+  blilingLinkElm.querySelector('.-label').textContent = 'Billing';
+  blilingLinkElm.querySelector('.shining-stars').classList.add('w3-hide');
+};
+
+SecondaryTopNavBar.postInitConfig = function (prs) {
+  SecondaryTopNavBar._logDebug('postInitConfig');
+
+  SecondaryTopNavBar._location = prs.location; // location required fields: href, hostname, pathname
+
+  // execution order priority: high
+  SecondaryTopNavBar._applyUserSessionUiTweaks({
+    loggedIn: prs.loggedIn,
+    subscriptionPlan: prs.subscriptionPlan
+  });
+
+  // execution order priority: high
+  SecondaryTopNavBar._highlightActiveLinks();
+
+  var featureFlags = prs.featureFlags;
+
+  if (typeof featureFlags === 'undefined') {
+    featureFlags = {
+      'noUpsell': false,
+    };
+  }
+
+  // execution order priority: low
+  if (featureFlags.noUpsell) {
+    SecondaryTopNavBar._applyNoUpsellUiTweaks();
+  }
+}
+
+window.addEventListener('load', SecondaryTopNavBar.initOnLoad);

@@ -1,0 +1,21 @@
+-- Cập nhật ngày 28-12-2025
+
+Việc cần làm ... 
+
+
+Page : Home
+    - Load dữ liệu phần danh mục của sản phẩm và có đường dẫn link tới đích sang trang khác 
+    - Top sản phẩm bán chay dựa vào đơn hàng đã bán được
+    - Lên dữ liệu cho sản phẩm Gaming và phân loại thêm cho sản phẩm cần css lại
+    - Lên dữ liệu cho sản phẩm Âm thanh gia đình và phân loại thêm cho sản phẩm cần css lại
+    - Lên dữ liệu cho Video Reviews
+    - Lên dữ liệu cho Dữ liệu tin tức
+
+
+Page : Detail
+    - Load sản phẩm tương tự theo danh mục của sản phẩm
+    - Lên dữ liệu và kế hoạch load dữ liệu cho dữ liệu thông số sản phẩm
+    - Load dữ liệu màu sản phẩm sử dụng TS để xử lý màu để hiển thị cho sản phẩm
+    - Load đữ liệu tin tức cho sản phẩm có cơ cấu load hình ảnh + văn bản + tiêu đề + link 
+    - Load dữ liệu đặc điểm nổi bật 
+    - Load bình luân bài viết nếu có

@@ -1,0 +1,32 @@
+
+
+
+
+
+@media (Max-Width: 8000px){
+
+    :root {
+        --Body_Chitiet: 1500px;
+    }
+
+
+    main {
+        grid-column: 1/3;
+        grid-row: 2/3;
+        background-color: var(--Maunen);
+    } 
+
+    .Main_Sosanh {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: var(--whidth_Center);
+        grid-template-rows: var(--Body_Chitiet);
+    }
+
+    .Sosanh {
+        position: relative;
+        grid-column: 1/2;
+        grid-row: 100vh;
+        background-color: rgb(212, 212, 212);
+    }
+}

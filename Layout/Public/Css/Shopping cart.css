@@ -1,0 +1,349 @@
+
+
+
+
+
+@media (Max-Width: 8000px){
+
+    :root {
+        --Body_Chitiet: 1500px;
+        --Body_Center: 1390px;
+    }
+
+    
+
+    main {
+        margin: 0 auto;
+        position: relative;
+        width: var(--Body_Center);
+        height: auto;
+    }
+
+    .Thanhdieuhuong {
+        position: relative;
+        margin: 3px 0px;
+        width: 100%; height: 40px;
+        background-color: rgb(247, 247, 247);
+    }
+
+    .Thanhdieuhuong svg {
+        position: absolute;
+        display: grid;
+        transform: translate(0px,-50%);
+        top: 50%; width: 16px;  height: 16px ;
+        left: 2%;
+    }
+
+    .Tendieuhuong {
+        position: relative;
+        top: 13px; float: left;
+        left: 60px;
+        margin: 0px 7px;
+    }
+
+    
+    /*  */
+
+
+    .Box_Giohang {
+        display: flex;
+        width: 100%; 
+        height: auto;
+        margin-bottom: 25px;
+    }
+
+    .Box_Product_Cart {
+        position: relative;
+        width: 69%; 
+        left: 0px;
+        top: 0px;
+        height: 700px;
+        overflow: auto;
+
+    }
+    
+
+
+    .Text_Product {
+        position: absolute;
+        color: black; font-size: 18px;
+        left: 15px; top: 10px;
+    }
+
+    .Boxx_Product_Cart {
+        position: absolute;
+        width: 100%; height: auto;
+        top: 45px; 
+    }
+
+    .Product_Cart {
+        position: relative;
+        width: 98%; height: 120px;
+        left: 1%;
+        background-color: rgb(241, 241, 241);
+        margin-bottom: 10px;
+        border-radius: 10px;
+    }
+
+    .Check_Product input {
+        position: absolute;
+        background-color: red;
+        width: 15px; height: 15px;
+        transform: translate(-0%,-50%);
+        top: 50%; left: 1%;
+    }
+
+
+    .Image_Product img {
+        position: absolute;
+        width: 70px; height: 80px;
+        background-color: white;
+        transform: translate(-0px,-50%);
+        top: 50%; left: 5%;
+    }
+
+    
+
+    .Name_Product_Cart {
+        position: absolute;
+        top: 20px; width: 70%; 
+        left: 15%; font-size: 18px;
+        color: black; line-height: 20px;
+    }
+
+    .Money_Groduct_Cart {
+        position: absolute;
+        color: rgb(255, 43, 43); font-weight: bold;
+        right: 10px; top: 20px;
+        font-size: 19px;
+    }
+
+    .Text_Delete_Product {
+        position: absolute;
+        right: 20px; bottom: 8px;
+        font-size: 13px; color: red;
+    }
+
+    .Delete_Product_Cart svg {
+        position: absolute;
+        width: 16px; height: 16px;
+        right: 22px; bottom: 27px;
+        color: red;
+    }
+
+    .Box_Thongkesoluong {
+        position: absolute;
+        width: 100px; height: 30px;
+        left: 15%; top: 64%;
+        background-color: rgb(214, 214, 214);
+    }
+
+    .Box_Tang_  {
+        position: relative;
+        float: left;
+        width: 32%; height: 95%;
+        background-color: white;
+        margin: 1px;
+    }
+
+    .Box_Tang_  svg {
+        float: left;
+        position: absolute;
+        width: 20px; height: 20px;
+        transform: translate(-50%,-50%);
+        left: 50%; top: 50%;
+    }
+
+
+    .Box_SL  {
+        position: relative;
+        float: left;
+        text-align: center; line-height: 25px;
+        font-size: 15px;
+        width: 30%; height: 95%;
+        background-color: white;
+        margin: 1px;
+    }
+
+   
+    .Box_Giam {
+        position: relative;
+        float: left;
+        width: 32%; height: 95%;
+        background-color: white;
+        margin: 1px;
+    }
+
+    .Box_Giam  svg {
+        float: left;
+        position: absolute;
+        width: 20px; height: 20px;
+        transform: translate(-50%,-50%);
+        left: 50%; top: 50%;
+    }
+
+
+
+
+    /*  box thanh toán */
+
+
+    .Box_Thanhtoan {
+        position: relative;
+        width: 30%;
+        max-height: 400px;
+        min-height: 400px;
+        margin-left: 1%;
+        margin-bottom: 20px;
+    }
+
+    .Sum_Mone_Product {
+        position: absolute;
+        width: 100%; height: 75px;
+        border-radius: 8px;
+        background-color: rgb(224, 192, 10);
+    }
+
+    .Sum_Mone_Product h3 {
+        position: absolute;
+        color: white;
+        left: 8%; top: 8%;
+    }
+
+    .Tongsotien {
+        position: absolute;
+        font-size: 22px; color: white;
+        font-weight: 600; left: 60%;
+        top: 54%;
+    }
+
+    .Tienhanhdathang a {
+        position: absolute;
+        width: 100%; background-color: red;
+        text-align: center;
+        text-decoration: none;
+        color: white; font-weight: 600;
+        top: 20%; padding: 20px 0px;
+        border-radius: 5px;
+    }
+
+    .Xoatatca a {
+        position: absolute;
+        width: 100%; background-color: rgb(53, 53, 53);
+        text-align: center;
+        text-decoration: none;
+        color: white; font-weight: 600;
+        top: 36%; padding: 15px 0px;
+        border-radius: 5px;
+    }
+
+    .dichvukhuyenmai {
+        position: absolute;
+        width: 99%; height: 68%;
+        bottom: 0px;
+        top: 220px;
+        border: 2px dotted red;
+    }
+    
+    .Box_Dichvu {
+        position: absolute;
+        width: 37%; height: 35px;
+        border-radius: 10px;
+        background-color: rgb(253, 253, 253);
+        top: -20px; left: 15px;
+        border: 1px solid rgb(220, 220, 220);
+    }
+    
+    .image_Chuyendong img {
+        position: absolute; 
+        border-radius: 50%;
+        width: 20px; height: 20px;
+        transform: translate(-0px,-50%);
+        top: 50%; left: 8%;
+    }
+
+    .Box_Dichvu span {
+        position: absolute;
+        transform: translate(-50%,-50%);
+        left: 50%; top: 50%;
+        font-size: 13px; color: red;
+        font-weight: bold;
+    }
+
+    .Box_Nhapma {
+        top: 20px;
+        position: relative;
+        width: 90%; height: 80px;
+        margin: 10px 5%;
+    }
+
+    .Input_Code input {
+        position: absolute;
+        background-color: rgb(199, 199, 199);
+        width: 60%;
+        border: 0px;
+        transform: translate(0%,-50%);
+        top: 50%; left: 2%;
+        padding: 10px 5px;
+        font-size: 20px;
+        padding-left: 15px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .Input_Code input:focus {
+        background-origin: none;
+        outline: none;
+    }
+
+
+
+    .Gui_Code {
+        position: absolute;
+        background-color: red;
+        color: white;
+        width: 80px; font-size: 17px;
+        text-align: center;
+        padding: 11px; right: 2%;
+        transform: translate(0%,-50%);
+        top: 50%;
+    }
+
+    
+
+    .Box_Magiamgia {
+        top: 20px;
+        position: relative;
+        width: 90%; height: 60px;
+        border: 1px solid rgb(181, 181, 181);
+        margin: 10px 5%;
+    }
+
+
+    .Box_Magiamgia span {
+        position: absolute;
+        color: black;
+        font-size: 19px;
+        right: 5px;
+        transform: translate(-0% , -50%);
+        top: 50%; width: 78%;
+        text-align: center;
+    }
+    
+    .Box_Magiamgia svg {
+        position: absolute;
+        width: 16px; height: 16px;
+        transform: translate(-0% , -50%);
+        top: 40%; left: 7%;
+        fill: red;
+    }
+
+    .Text_Copy_None {
+        position: absolute;
+        width: 16px; height: 16px;
+        transform: translate(-0% , -50%);
+        top: 75%; left: 6%;
+        font-size: 13px;
+        color: red;
+    }
+
+}

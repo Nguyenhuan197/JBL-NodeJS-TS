@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load ...</title>
+  
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <link rel="icon" href="data:image/png;base64,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" type="image/png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+          
+
+        <link rel="stylesheet" href="/Css/Header/Header false.css">
+        <link rel="stylesheet" href="/CSS/Category.css">
+        <link rel="stylesheet" href="/CSS/Footer.css">
+        <link rel="stylesheet" href="/CSS/Default/Features.css">
+        <link rel="stylesheet" href="/CSS/Default/Search Product.css">
+        <link rel="stylesheet" href="/CSS/Default/Compare.css">   
+        <link rel="stylesheet" href="/CSS/Default/Parameters.css">
+        <link rel="stylesheet" href="/Layout/Public/CSS/Default/Compare.css">
+
+        <script type="module">
+            import {
+                Heder,
+                Thanh_Top,
+                Load_Menu        
+            }
+                from "/Javascript/Function/Module.js";
+                
+            const _Heder  = Heder();
+            const _Thanh_Top = Thanh_Top();
+            const _Load_Menu = Load_Menu();
+
+            document.getElementsByTagName("title")[0].innerHTML = "JBL | Category";
+        </script>
+</head>
+
+
+
+<body> 
+    <section class="Error_404"><img src="Data/img/Error 404.png" alt=""></section>
+    <section class="Load_dinh"><nav class="Load_"></nav></section>
+    <section class="Features_Notification"></section>
+
+    <section class="Main_">
+        <div class="Thanh_Top" id="Up_Top"><i class="bi bi-arrow-bar-up"></i></div>
+        <div class="Thanh_Chat">Chat</div>
+        <section class="Video_Danhgia">
+            <svg onclick="Bovideo()" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg>
+            <iframe></iframe>
+        </section>
+      
+            <header>
+                <!-- <section class="KHUNG_MENU" id="PT_an_hien">
+                    <nav class="Header_">
+                        <div class="_Logo_JBL"><a href="/"><img src="/Upload/Acount/image Admin.jpg" alt=""></a></div>
+                        <aside class="_Thanhtimkiem_sp_">
+                            <i class="bi bi-search"></i>
+                            <input type="text" placeholder="Bạn cần tìm gì ?">
+                        </aside>
+                    </nav>   
+                </section> -->
+
+                 <!--  Header -->
+                  <%- include('./partials/Header')  %>
+                 <!--  -->
+     
+
+
+                <section class="KHUNG_DANHMUC_SP">
+                    <nav class="_Khung__Danhmuc">
+                        <!-- <section class="Danhmuc">
+                            <a href="#"><div class="Hinh_danhmuc"><img src="/Upload/Category/Loa.webp" alt=""></div><div class="Ten_Danhmuc"><span>Loa nghe nhạc</span></div></a>
+                            <div class="Menu_"><p><a href="">Loa JBL</a></p><p><a href="">Loa JBL</a></p></div>
+                        </section>
+
+                        <section class="Danhmuc">
+                            <a href="#"><div class="Hinh_danhmuc"><img src="/Upload/Category/Tai nghe.webp" alt=""></div><div class="Ten_Danhmuc"><span>Tai nghe</span></div></a>
+                            <div class="Menu_"><p><a href="">Loa JBL</a></p><p><a href="">Loa JBL</a></p></div>
+                        </section>
+
+                        <section class="Danhmuc">
+                            <a href="#"><div class="Hinh_danhmuc"><img src="/Upload/Category/Am thanh gia dinh.webp" alt=""></div><div class="Ten_Danhmuc"><span>Âm thanh gia đình</span></div></a>
+                            <div class="Menu_"><p><a href="">Loa JBL</a></p><p><a href="">Loa JBL</a></p></div>
+                        </section>
+
+                        <section class="Danhmuc">
+                            <a href="#"><div class="Hinh_danhmuc"><img src="/Upload/Category/Gaming.webp" alt=""></div><div class="Ten_Danhmuc"><span>Sản phẩm Gaming</span></div></a>
+                            <div class="Menu_"><p><a href="">Loa JBL</a></p><p><a href="">Loa JBL</a></p></div>
+                        </section>
+
+                        <section class="Danhmuc">
+                            <a href="#"><div class="Hinh_danhmuc"><img src="/Upload/Category/Loa am thanh chuen nghiep.jpg" alt=""></div><div class="Ten_Danhmuc"><span>Âm thanh lớn</span></div>  </a>
+                            <div class="Menu_"><p><a href="">Loa JBL</a></p></div>
+                        </section> -->
+                    </nav>
+                </section>
+        </header>
+
+        
+
+
+        <main>       
+            <nav class="Contion_Dom_Category">
+                <!-- <span class="Text_navigation">Trang Chủ - Sale Tháng 1 - ???></span> -->
+            </nav>
+
+
+            <section class="Container">
+               <section class="Box_Slide_1"><img src="/Upload/Banner/Banenr Category 1.webp" alt=""></section>
+               <!-- <section class="Box_Menu_Category_2">
+                    <nav class="Box_Type_Product_Category">
+                        <div onclick="" class="Type_Product_Category">Mặc định</div>
+                        <div onclick="" class="Type_Product_Category">Gía tăng dần</div>
+                        <div onclick="" class="Type_Product_Category">Gía giảm dần</div>
+                        <div onclick="" class="Type_Product_Category">Mới nhất</div>
+                        <div onclick="" class="Type_Product_Category">Cũ nhất</div>
+                    </nav>
+               </section> -->
+    
+<!--  --> 
+   
+               <section class="Box_Information_Product_Category">
+                    <span class="Text_Price_filter">Lọc giá</span>
+                    <span class="Count_Product_Volume1">từ 
+                        <span class="Money_Start">2000000</span><span> - > </span>
+                        <span class="Money_End">10000000</span>
+                    </span>
+
+                    <nav class="Volum_Contine_Money">
+                        <input type="range" id="volume_Filter" step="10" min="0" max="100" value="" oninput="Value_Filter(this)">
+                    </nav>
+
+
+                    <div class="Box_Cotener_ADD"></div>
+                    <nav class="Button_Apply_Filter">Áp Dụng</nav>
+               </section>
+
+
+<!--  -->
+       
+ 
+               <section class="Box_Product_Category">
+                    <section class="Container_Box_Product_Category">
+                        <div class="Waring_None_Product"><span>Danh Mục Rỗng</span></div>
+                        <div class="Load_Filter"><img src="/Data/Image_Chuyendong/Load 5.gif" alt=""></div>
+
+                        <!-- <nav class="Box_Product">
+                            <a href="/Detail/???ID">
+                                <div class="Filter" style="display: none;"><span class="Filter_Money">3980000</span></div>   
+                                <div class="image_Product"><img src="???" alt=""></div>
+                                <span class="Name_Product_Categorry">???</span>
+                                <span class="Price_Product_Category">???</span>
+                                <span class="Pridce_Reduce_Product"><del>???</del></span>
+                                <span class="Capacity_Product_Category">4.2 W</span>
+                                <div class="Box_Star">
+                                    <div class="icon_STAR_Product_Category"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg></div>
+                                    <div class="icon_STAR_Product_Category"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg></div>
+                                    <div class="icon_STAR_Product_Category"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg></div>
+                                    <div class="icon_STAR_Product_Category"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg></div>
+                                </div>
+                                <span class="Text_Compere">So Sánh</span>
+                                <div class="Check_Radio_compare_Product"><input index_Checks="0" onclick="Check_Compare(this)" type="checkbox"></div>
+                            </a>
+                        </nav> -->
+                    </section> 
+
+
+                   
+
+               </section>
+
+               <section class="Box_News_Product_Category">
+                    <section class="Box_Text_News_Product_Category">
+                        <h2>Loa nghe nhạc JBL: Âm thanh sống động, trải nghiệm tuyệt vời</h2>
+                        <span class="Text_News">
+                            Âm thanh là một phần không thể thiếu trong cuộc sống của mỗi chúng ta. Nó giúp chúng ta thư giãn, giải trí, và tạo nên những giây phút vui vẻ, đáng nhớ. Một hệ thống âm thanh chất lượng cao sẽ giúp bạn đắm chìm trong những giai điệu âm nhạc đầy mê hoặc, những bộ phim bom tấn sống động, hoặc những trận đấu thể thao kịch tính.
+                            Loa JBL là một lựa chọn tuyệt vời cho những ai đang tìm kiếm một hệ thống âm thanh hoàn hảo cho mọi không gian sống. Với chất lượng âm thanh đỉnh cao, thiết kế thời thượng, và đa dạng mẫu mã, loa JBL sẽ mang đến cho bạn những trải nghiệm âm thanh tuyệt vời, giúp bạn tận hưởng cuộc sống một cách trọn vẹn hơn.
+
+                        </span>
+                        <div class="Image_News"><img src="/Upload/News/New Category image 1.webp" alt=""></div>
+                    </section>
+                    <nav class="Botton_See_More_Product">Xem Thêm</nav>
+               </section>
+            </section>
+        </main>  
+
+
+        
+        <!-- Footer -->
+            <%- include('./partials/Footer')  %>
+            
+        <!-- Footer -->
+        
+
+
+
+    </section>
+
+
+
+</body>
+
+    <script script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/Javascript/Category.js"></script>
+    <script src="/Javascript/Function/Notification.js"></script>
+    <script src="/Javascript/Function/Money Vietnam.js"></script>
+    <script src="/Javascript/Function/See more new.js"></script>
+    <script src="/Javascript/Data/Session/Save Session.js"></script>
+    <script src="/Javascript/Function/Search Product.js"></script>
+    <script src="/Javascript/Status_Acount.js"></script>
+    <script src="/Javascript/Function/Time Load Page.js"></script>
+</html>

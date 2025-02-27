@@ -1,0 +1,71 @@
+
+   
+
+
+    
+
+
+    <link rel="stylesheet" href="./App/Public/CSS/Category.css">
+
+
+    <section class="Box_Body_Conten">
+        <section class="Box_Input">
+            <label for="productInput">Phần Danh Mục</label><br>
+                <select name="" id="Page_Category" onchange="Loadding_Page()" id="">
+                    <option value="">Chọn Mẫu Danh Mục</option>
+                    <option value="Tintuc">Tin Tưc</option>
+                    <option value="Sanpham">Sản Phẩm</option>
+            </select><br><br>
+
+            <!-- Form dữ thêm dữ liệu -->
+            <form id="Check_Form_News" action="index.php?Page=Category&Action=Add-Category-News" method="POST"  style="display: none;" id="productForm" class="Display_News">
+                <label for="productInput">Thêm mới sản phẩm</label>
+                <input type="text" id="ProductInput" name="Name_Category" placeholder="Thêm Mới .." />
+                <button type="submit">Thêm Danh Mục Sản Phẩm</button>
+            </form>
+
+            <form id="Check_Form_News" action="index.php?Page=Category&Action=Add-Category-News" method="POST"  style="display: none;" id="productForm" class="Display_News">
+                <label for="productInput">Thêm mới Tin tức</label>
+                <input type="text" id="NewsInput" name="Name_Category" placeholder="Thêm Mới .." />
+                <button type="submit">Thêm Danh Mục Tin Tức</button>
+            </form>
+        </section>
+
+        <section class="Box_Views Product Display_Product">
+            <h2>Danh Mục Sản Phẩm</h2>
+
+            <table>    
+                <thead>   
+                    <tr>
+                        <th>Số thứ tự</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+
+              
+                <tbody id="productList">
+                    <tr>
+                        <td><?php echo $Index_ ?></td>
+                        <td><?php echo $Value['Name'] ?></td>
+                        <td><a href="index.php?Page=Category&Action=Delete-Category-Product&ID=<?php echo $Value['ID'] ?>"><i class="bi bi-x-lg"></i></a></td>
+                    </tr>
+                </tbody>
+            
+              
+            </table>
+        </section>  
+
+
+       
+
+
+    </section>
+
+   
+   
+
+
+<script src="./App/Public/Javascript/Category.js"></script>
+
+

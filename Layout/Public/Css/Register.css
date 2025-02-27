@@ -1,0 +1,138 @@
+body {
+    border: 0px; margin: 0px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: rgb(230, 230, 230);
+    position: relative;
+    width: 100%; height: 100vh;
+}
+
+.Box_Header {
+    position: absolute;
+    background-color: tomato;
+    width: 58%; height: 100vh;
+    /* border-radius: 0px 22% 22% 0px; */
+}
+
+.Logo a img {
+    position: absolute;
+    width: 100px; height: 80px; 
+    left: 3%; top: 7%;
+    border: 3px solid white;
+    padding: 2px;
+}
+
+.Text_Welcome {
+    position: absolute;
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+    transform: translate(-50%,-50%);
+    left: 50%; top: 40%;
+    width: 70%; text-align: center;
+}
+
+.Click_Login {
+    position: absolute;
+    font-size: 30px;
+    color: black;
+    background-color: white;
+    text-align: center;
+    transform: translate(-50%,-0%);
+    left: 50%; top: 54%;
+    padding: 10px 60px;
+    border-radius: 10px;
+    transition: 
+        background-color 1s ,
+        color 1s 
+    ;
+}
+
+.Click_Login:hover {
+    background-color: black;
+    color: white;
+    transition: 
+        background-color 1s,
+        color 1s
+    ;
+    cursor: pointer; 
+}
+
+/*  */
+
+
+.Box_Input_Text_Register {
+    position: absolute;
+    width: 40%; height: auto;
+    right: 0px;
+}
+
+.Text_Registers {
+    position: absolute;
+    transform: translate(-50%,-0px);
+    left: 50%; font-size: 43px;
+    top: 16vh;
+}
+
+
+.From_input_Name input {
+    position: absolute;
+    transform: translate(-50%,-0%);
+    left: 50%; top: 30vh;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 24px;
+    border: 0px; background-color: rgb(245, 245, 245);
+    padding: 20px 20px;
+    width: 62%;
+    padding-right: 10px;
+}
+
+
+.From_input_Email input {
+    position: absolute;
+    transform: translate(-50%,-0%);
+    left: 50%; top: 42vh;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 24px;
+    border: 0px; background-color: rgb(245, 245, 245);
+    padding: 20px 20px;
+    width: 62%;
+    padding-right: 10px;
+}
+
+
+.From_input_Pasword input {
+    position: absolute;
+    transform: translate(-50%,-0%);
+    left: 50%; top: 54vh;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 24px;
+    border: 0px; background-color: rgb(245, 245, 245);
+    padding: 20px 20px;
+    width: 62%;
+    padding-right: 10px;
+}
+
+
+.Click_Button button{
+    position: absolute;
+    transform: translate(-50%,-0%);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 24px; text-align: center;
+    border: 0px; margin: 0px;
+    background-color: tomato;
+    left: 50%; top: 66vh;
+    color: white;
+    padding: 20px 20px;
+    width: 66%;
+}
+
+
+
+.Text input::placeholder {
+    font-size: 24px; color: black;
+    border: 0px;
+}
+
+.Text input:focus {
+    border: none; outline: none;
+}
