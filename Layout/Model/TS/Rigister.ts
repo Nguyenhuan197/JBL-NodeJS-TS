@@ -1,7 +1,7 @@
 import { error } from 'console';
 import Connect from '../SQL/Db';
    
-
+   
 class Database_Register {
     Save_Register = (Name: string, Email: string, Password: string, Callback: any) => {
         let Query_Add_User : string = `INSERT INTO nguoidung 
@@ -34,6 +34,8 @@ class Database_Register {
             }
         });
     }
+
+
     
 }
 

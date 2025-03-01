@@ -3,7 +3,7 @@ const Router_Rigister = express_Rigister.Router();
 const { 
     View_Rigister_Router, 
     Login_Rigister    
-} = require('../Controllers/Rigister');
+} = require ('../Controllers/Rigister');
 
    
 Router_Rigister.get('/', View_Rigister_Router);

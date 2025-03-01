@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Check_Login = exports.View_Login = void 0;
 const Login_1 = __importDefault(require("../Model/Login"));
+let SQL_Login = new Login_1.default();
 const View_Login = (req, res, next) => {
     res.render('Login', {});
 };
@@ -12,20 +13,28 @@ exports.View_Login = View_Login;
 const Check_Login = (req, res, next) => {
     let Email = req.body.Email;
     let Password = req.body.Password;
-    const SQL_Login = new Login_1.default();
-    SQL_Login.Login(Email, Password, (error, Result) => {
-        if (error) {
+    // Mã hóa mật khẩu 2 chiều MD5
+    const crypto = require('crypto');
+    // Cấu hình thuật toán, key (32 byte) và IV (16 byte)
+    const algorithm = 'aes-256-cbc';
+    const key = Buffer.from('0123456789abcdef0123456789abcdef'); // 32 ký tự
+    const iv = Buffer.from('abcdef9876543210'); // 16 ký tự
+    // Hàm mã hóa
+    const encrypt = (text) => {
+        const cipher = crypto.createCipheriv(algorithm, key, iv);
+        let encrypted = cipher.update(text, 'utf8', 'hex');
+        encrypted += cipher.final('hex');
+        return encrypted;
+    };
+    let Password_KQ_MD5 = encrypt(Password);
+    // Check Login 
+    SQL_Login.Login(Email, Password_KQ_MD5, (error, Result) => {
+        if (error)
             return next(error);
-        }
-        else {
-            if (Result.length >= 1) {
-                let ID_USER = Result[0]['ID_USER'];
-                res.cookie('USER_TRUE', ID_USER, { maxAge: 6000000, path: '/' });
-                res.send('Thanhcong');
-            }
-            else {
-                res.send('Thatbai');
-            }
+        if (Result.length >= 1) {
+            let ID_USER = Result[0]['ID_USER'];
+            res.cookie('USER_TRUE', ID_USER, { maxAge: 6000000, path: '/' });
+            res.send('Thanhcong');
         }
     });
 };

@@ -1,0 +1,80 @@
+
+Nộp Bài Node JS
+
+
+TC1 : 
+	Liệt kê danh sách sản phẩm
+		API    -  http://localhost:4000/Product/API
+	Chi Tiết sản phẩm
+		API   - http://localhost:3000/Detail/API/15		
+	Thêm và lưu đơn hàng Test Bên Layout Giỏ hàng
+			http://localhost:3000/ShoppingCart
+
+
+
+TC2
+	Quản lý Danh Mục 
+		- Thêm xóa sửa    
+
+	Quản lý sản phẩm
+		- Thêm xóa sửa
+
+	Quản lý tài khoản 
+		- Cấp quền - xóa tài khoản   
+
+
+TC3
+	Quản lý đơn hàng
+		- Phê Duyệt sản phẩm  
+
+
+		- Trạng thái sản phẩm ? 
+
+			
+		- Xem Chi Tiết sản phẩm ? 
+			- API  :     http://localhost:3000/Detail/API/2
+
+		- Trạng thái đơn hàng - 1đăng giao - 2đã giao  , 3 Thanh toán 
+			- API :     http://localhost:4000/Product/Trangthaidonhang/2
+		
+	
+TC4 	
+	- Đăng ký tài khoản
+	- Xác thực tài khoản
+	- Phân quền tài khoản
+	
+
+
+
+
+TC5 
+	- Phân loại sản phẩm  - Phân trang ?  
+		API :     http://localhost:4000/Product/Page_Category/2
+	
+	- Top 10 sản phẩm bán chạy  - Lượt mua nhiều nhất  ?
+		API :     http://localhost:4000/Product/Top10_Hot_Product
+
+
+ 	- Sắp xêp top 20  sản phẩm giá tăng dần - giảm dần
+		 Giam Dan   -   API  :   http://localhost:4000/Product/Ascending_Order_Product
+		Tang Dan   -   API :     http://localhost:4000/Product/Descending_Order_Product   
+
+
+	- Lọc sản phẩm đã duyệt & sản phẩm chưa duyệt
+		San pham da duyet
+			API  :     http://localhost:4000/Product/Status_Product_True
+			
+		San phẩm chưa duyêt 
+			API :     http://localhost:4000/Product/Status_Product_Fall		
+	
+
+	- Lọc giá sản phẩm
+		API :  http://localhost:3000/Category/API_Fill/3500000/5000000
+
+
+	- Tìm kiếm sản phẩm ? 	
+ 		API   :	http://localhost:4000/Product/Search_Product/Tai nghe
+		
+
+TSC 6 
+	Nộp bài đúng hạn 

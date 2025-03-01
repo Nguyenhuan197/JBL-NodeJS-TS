@@ -4,8 +4,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const createError = require('http-errors');
-
    
+
 let indexRouter = require('./routes/index');
 let Detail_Router = require('./routes/Detail');
 let Category_Router = require('./routes/Category');
@@ -13,7 +13,8 @@ let Login_Router = require('./routes/Login');
 let Rigister_Router = require('./routes/Rigister');
 let Shopping_Cart_Router = require('./routes/ShoppingCart');
 let Acount_Router = require ('./routes/Acount');
-var app = express();   
+let Save_Token_Router = require ('./routes/SaveToken');
+var app = express();       
       
     
 // view engine setup
@@ -46,8 +47,7 @@ app.use('/Login', Login_Router);
 app.use('/Rigister', Rigister_Router);
 app.use('/ShoppingCart', Shopping_Cart_Router);
 app.use('/Acount', Acount_Router);
-
-
+app.use('/SaveToken', Save_Token_Router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

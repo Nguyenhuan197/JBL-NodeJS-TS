@@ -96,7 +96,7 @@ class Home {
             let Query_TOP_SP = `SELECT 	sanpham.id AS ID ,
             sanpham.Tensp AS Name,
             MIN(anhsp.IMG) AS IMG,
-            sanpham.Luotban AS Luotban    
+            sanpham.Luotban AS Luotban
             
             FROM sanpham
                 LEFT JOIN anhsp
