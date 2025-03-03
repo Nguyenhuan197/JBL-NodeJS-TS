@@ -13,8 +13,7 @@ export const Login_Rigister = (req: any, res: any, next: any) => {
     let Email : string = req.body.Email_Register;
     let Password : string = req.body.Password_Register;
 
-    const crypto = require('crypto');
-    // Cấu hình thuật toán, key (32 byte) và IV (16 byte)
+    const crypto = require('crypto'); // Cấu hình thuật toán, key (32 byte) và IV (16 byte)
     const algorithm = 'aes-256-cbc';
     const key = Buffer.from('0123456789abcdef0123456789abcdef'); // 32 ký tự
     const iv = Buffer.from('abcdef9876543210'); // 16 ký tự

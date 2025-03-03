@@ -14,6 +14,7 @@ let Rigister_Router = require('./routes/Rigister');
 let Shopping_Cart_Router = require('./routes/ShoppingCart');
 let Acount_Router = require ('./routes/Acount');
 let Save_Token_Router = require ('./routes/SaveToken');
+
 var app = express();       
       
     
@@ -39,7 +40,7 @@ app.use(cookieParser());
 const uploadFolderPath = path.join(__dirname, '..', 'Upload');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/Upload', express.static(uploadFolderPath));
-    
+        
 app.use('/', indexRouter);
 app.use('/Detail', Detail_Router);
 app.use('/Category', Category_Router);

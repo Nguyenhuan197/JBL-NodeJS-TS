@@ -1,9 +1,11 @@
 
 import { error } from 'console';
 import Connect from '../SQL/Db';
+import { json } from 'stream/consumers';
+
 
 class Login_Model {
-    Login = (Email : string , Password : string , Callback : any) => {
+    Login = (Email : string , Password : any , Callback : any) => {
         let Query_Login = `SELECT nguoidung.id AS ID_USER
             FROM nguoidung
             WHERE nguoidung.Quen = ?
@@ -12,12 +14,11 @@ class Login_Model {
         `;
 
         Connect.query (Query_Login , [2 , Email , Password] , (error : string , Result : any) => {
-            if (error){
-                Callback (error , null);
-            } else {
-                Callback (null , Result);
-            }
+            if (error) return  Callback (error , null);
+            Callback (null , Result);
         });
+
+        
     }
 
 }

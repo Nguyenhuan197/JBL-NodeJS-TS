@@ -6,7 +6,7 @@ export const View_Login = (req: any, res: any, next: any) => {
 }  
    
 export const Check_Login = (req: any, res: any, next: any) => {
-    let Email: string = req.body.Email;
+    let Email: string = req.body.Email;     
     let Password: string = req.body.Password;
 
 

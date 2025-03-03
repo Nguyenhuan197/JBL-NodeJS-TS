@@ -107,6 +107,7 @@ class Home {
                     ON loaidanhmuc.iddm = danhmuc.id
                     
             WHERE danhmuc.id = 1   
+            AND sanpham.Tranthai = 2
                 
                 GROUP BY sanpham.id
                	   ORDER BY sanpham.Luotban DESC
@@ -133,7 +134,8 @@ class Home {
                     ON loaidanhmuc.iddm = danhmuc.id
                     
             WHERE danhmuc.id = 2
-                
+            AND sanpham.Tranthai = 2    
+
                 GROUP BY sanpham.id
                	   ORDER BY sanpham.Luotban DESC
             LIMIT 2
@@ -181,6 +183,7 @@ class Home {
                     ON sanpham.id = anhsp.idsp
       	
         	WHERE sanpham.Sale = 'YES'
+            AND sanpham.Tranthai = 2
             GROUP BY sanpham.id
             ORDER BY RAND() LIMIT 4
         `;
@@ -207,6 +210,7 @@ class Home {
                     ON sanpham.id_loaidm = loaidanhmuc.id
                 
                 WHERE loaidanhmuc.iddm = 1    
+                AND sanpham.Tranthai = 2
             GROUP BY sanpham.id
         `;
             Db_1.default.query(Query, (err, results) => {
@@ -232,6 +236,7 @@ class Home {
                     ON sanpham.id_loaidm = loaidanhmuc.id
                 
                 WHERE loaidanhmuc.iddm = 2    
+                AND sanpham.Tranthai = 2
             GROUP BY sanpham.id
         `;
                 Db_1.default.query(Query, (err, results) => {
@@ -258,6 +263,7 @@ class Home {
                     ON sanpham.id_loaidm = loaidanhmuc.id
                 
                 WHERE loaidanhmuc.iddm = 4
+                AND sanpham.Tranthai = 2
             GROUP BY sanpham.id
         `;
             Db_1.default.query(Query, (error, results) => {
@@ -283,6 +289,7 @@ class Home {
                     ON sanpham.id_loaidm = loaidanhmuc.id
                 
                 WHERE loaidanhmuc.iddm = 3
+                AND sanpham.Tranthai = 2
             GROUP BY sanpham.id
         `;
             Db_1.default.query(Query, (error, Results) => {

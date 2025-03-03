@@ -14,12 +14,9 @@ class Login_Model {
                 AND nguoidung.Matkhau = ?
         `;
             Db_1.default.query(Query_Login, [2, Email, Password], (error, Result) => {
-                if (error) {
-                    Callback(error, null);
-                }
-                else {
-                    Callback(null, Result);
-                }
+                if (error)
+                    return Callback(error, null);
+                Callback(null, Result);
             });
         };
     }

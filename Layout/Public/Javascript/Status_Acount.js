@@ -11,8 +11,6 @@ let Check_Status_Login_True = document.querySelector ("#Check_Status_Login_True"
 // }
 
 
-
-
 let Check_Token = () => {
     const Token = localStorage.getItem('token');
     if (!Token) return false;
@@ -32,8 +30,6 @@ let Check_Token = () => {
         console.error("Lỗi xác minh Token:", err);
         View_Header (false);
     });
-
-    
 }
 
 

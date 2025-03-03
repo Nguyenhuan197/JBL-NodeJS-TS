@@ -12,8 +12,9 @@ let CategoryRouter =  require ('./routes/Category');
 let User_ClineRouter = require ('./routes/User');
 let AdminRouter = require ('./routes/Admin');
 let Statistical_Router = require ('./routes/Statistical');
+// let CheckAdmin_Router = require ('./routes/Check_Admin');
 var app = express();
-
+  
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,7 +22,7 @@ app.set('views', path.join(__dirname, 'views'));
 // app.set('views', [
 //   path.join(__dirname, 'views'),
 //   path.join(__dirname, 'partials')
-// ]);
+// ]);    
    
 
 // Trạng thái dữ liệu lấy bằng API của Form Node JS
@@ -34,9 +35,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+
+// Dữ liệu thư mục
 const uploadFolderPath = path.join(__dirname, '..', 'Upload');
+const Upload_API = path.join (__dirname, '..', 'Api');
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/Upload', express.static(uploadFolderPath));
+app.use ('/Upload', express.static(uploadFolderPath));
+app.use ('/Api',  express.static(Upload_API));
+
 
 
 app.use ('/', indexRouter);
@@ -46,6 +52,7 @@ app.use ('/Category', CategoryRouter);
 app.use ('/User' , User_ClineRouter);
 app.use ('/Admin' , AdminRouter);
 app.use ('/Statistical', Statistical_Router);
+// app.use ('/Check_Admin' , CheckAdmin_Router);
 
 
 

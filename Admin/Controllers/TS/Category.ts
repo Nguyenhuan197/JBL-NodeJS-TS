@@ -43,7 +43,6 @@ export const Delete = (req: Request, res: Response, next: NextFunction) => {
 }
 
 
-
 export const Upload = (req: Request, res: Response, next: NextFunction) => {
     let ID : number = req.body.ID_Category;
     let Name_Category : string = req.body.Name_Category;

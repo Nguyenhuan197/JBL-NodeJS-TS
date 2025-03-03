@@ -9,6 +9,47 @@
     <link rel="stylesheet" href="CSS/System/Default.css">
     <link rel="stylesheet" href="Statistical.css">
     <link rel="stylesheet" href="CSS/Category.css">
+
+
+    <script>
+        // File: public/js/websocket-client.ts (hoặc nhúng trực tiếp trong HTML)
+        const socket = new WebSocket('ws://localhost:4000');
+
+        socket.onopen = () => {
+            console.log('🟢 Kết nối WebSocket thành công');
+        };
+
+        socket.onmessage = (event) => {
+            const message = JSON.parse(event.data);
+
+            if (message.type === 'add') {
+                // Ví dụ: Cập nhật giao diện khi có danh mục mới
+                alert(`Danh mục "${message.data.Name_Category}" vừa được thêm!`);
+                // Bạn có thể cập nhật DOM thay vì reload toàn trang:
+                // Loaddings.View_Category('http://localhost:4000/Category/API_Views');
+                window.location.reload();
+            }
+
+            if (message.type === 'delete') {
+                alert(`Danh mục có ID ${message.data.ID} đã bị xóa!`);
+                window.location.reload();
+            }
+
+            if (message.type === 'update') {
+                alert(`Danh mục có ID ${message.data.ID_Edit} đã được cập nhật!`);
+                window.location.reload();
+            }
+        };
+
+        socket.onclose = () => {
+            console.log('🔴 Kết nối WebSocket đã đóng');
+        };
+
+
+
+    </script>
+
+
 </head>
 
 
@@ -108,4 +149,10 @@
     <script src="Javascript/Category.js"></script>
     <script src="Javascript/Default.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/Javascript/Check_Admin.js"></script>
+
+
+
+   
+
 </html>      

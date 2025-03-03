@@ -8,8 +8,9 @@ const cors = require('cors');
 // Có thể dùng router-level middleware
 router.use(cors());
 router.use(bodyParser.json());
-
 const SECRET_KEY = "my_secret_key";
+
+
 
 // Tạo Token từ dữ liệu
 router.post('/Add', (req : any , res  : any ) => {
@@ -19,8 +20,6 @@ router.post('/Add', (req : any , res  : any ) => {
   }
   const token = jwt.sign({ Naame : Name, Email: Email }, SECRET_KEY, { expiresIn: '1h' });
   res.json({ token });
-    
-
 });
 
 
