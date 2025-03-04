@@ -13,9 +13,6 @@ const SECRET_KEY = "my_secret_key_Admin"; // Khai báo một lần
 const Views = (req, res, next) => {
     res.render("Login", {});
 };
-
-
-
 exports.Views = Views;
 // mã hóa mật khẩu MD5
 const Loadding_Login = (req, res, next) => {

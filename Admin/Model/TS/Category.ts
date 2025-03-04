@@ -9,9 +9,10 @@ import { callbackify } from 'util';
 class Category_Model {
     Views  = (Callback : any) => {
         let Query_Login = `SELECT 	loaidanhmuc.id AS ID,
-		loaidanhmuc.Tendm AS Name,
-        danhmuc.id AS ID_Danhmuc,
-        danhmuc.Tendm AS Name_Danhmuc
+            loaidanhmuc.Tendm AS Name,
+            danhmuc.id AS ID_Danhmuc,
+            danhmuc.Tendm AS Danhmuccha,
+            loaidanhmuc.Tendm AS Danhmuccon
         	
         	FROM loaidanhmuc
             LEFT JOIN danhmuc
@@ -54,10 +55,10 @@ class Category_Model {
 
 
     // Uplpoad
-    Upload = (ID : number , ID_Edit : number , Name_Category : string , Callback : any) => {
+    Upload = (ID_Edit : number ,  ID_Category : number , Name_Category : string , Callback : any) => {
         let Query_Add : string =  `UPDATE loaidanhmuc SET iddm = ? , Tendm = ? WHERE id = ?;`;  
 
-        Connect.query (Query_Add , [ID , Name_Category , ID_Edit] , (error : string , Result : any) => {
+        Connect.query (Query_Add , [ID_Category , Name_Category , ID_Edit] , (error : string , Result : any) => {
             if (error) return Callback (error , null);
             Callback (null , Result);
         });

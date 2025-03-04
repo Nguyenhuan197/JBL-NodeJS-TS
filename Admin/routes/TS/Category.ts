@@ -7,5 +7,5 @@ router_Category.get ('/API_Views' , Loadding_Category.View_Category);
 router_Category.get ('/API_Category' , Loadding_Category.Data_Category);
 router_Category.post ('/Add' , Loadding_Category.Add);
 router_Category.delete ('/:ID' , Loadding_Category.Delete);
-router_Category.post ('/Upload' ,Loadding_Category.Upload);
-module.exports = router_Category;
+router_Category.put ('/Upload/:IDUPLOAD' ,Loadding_Category.Upload);
+module.exports = router_Category;     

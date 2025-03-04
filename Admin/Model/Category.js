@@ -8,9 +8,10 @@ class Category_Model {
     constructor() {
         this.Views = (Callback) => {
             let Query_Login = `SELECT 	loaidanhmuc.id AS ID,
-		loaidanhmuc.Tendm AS Name,
-        danhmuc.id AS ID_Danhmuc,
-        danhmuc.Tendm AS Name_Danhmuc
+            loaidanhmuc.Tendm AS Name,
+            danhmuc.id AS ID_Danhmuc,
+            danhmuc.Tendm AS Danhmuccha,
+            loaidanhmuc.Tendm AS Danhmuccon
         	
         	FROM loaidanhmuc
             LEFT JOIN danhmuc
@@ -47,9 +48,9 @@ class Category_Model {
             });
         };
         // Uplpoad
-        this.Upload = (ID, ID_Edit, Name_Category, Callback) => {
+        this.Upload = (ID_Edit, ID_Category, Name_Category, Callback) => {
             let Query_Add = `UPDATE loaidanhmuc SET iddm = ? , Tendm = ? WHERE id = ?;`;
-            Db_1.default.query(Query_Add, [ID, Name_Category, ID_Edit], (error, Result) => {
+            Db_1.default.query(Query_Add, [ID_Category, Name_Category, ID_Edit], (error, Result) => {
                 if (error)
                     return Callback(error, null);
                 Callback(null, Result);

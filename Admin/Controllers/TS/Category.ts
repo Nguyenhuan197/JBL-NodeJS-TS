@@ -32,7 +32,7 @@ export const Add = (req: Request, res: Response, next: NextFunction) => {
         res.send ('Thêm Danh Mục Thành Công');
     });
 }
-
+   
 
 export const Delete = (req: Request, res: Response, next: NextFunction) => {
     let ID : number = parseInt(req.params.ID);
@@ -41,14 +41,14 @@ export const Delete = (req: Request, res: Response, next: NextFunction) => {
         res.send ('Xóa Danh Mục Thành Công');
     });
 }
-
+    
 
 export const Upload = (req: Request, res: Response, next: NextFunction) => {
-    let ID : number = req.body.ID_Category;
+    let ID_EDIT : number = Number(req.params.IDUPLOAD);
     let Name_Category : string = req.body.Name_Category;
-    let ID_Edit : number = req.body.ID_Edit;
+    let ID_Category : number = req.body.ID_Category;
 
-    SQL.Upload (ID , ID_Edit , Name_Category , (error : string , Result : any) => {
+    SQL.Upload (ID_EDIT , ID_Category , Name_Category , (error : string , Result : any) => {
         if (error) return next (error);
         res.send ('Cập Nhật Danh Mục Thành Công');
     });

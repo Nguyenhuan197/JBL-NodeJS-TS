@@ -93,7 +93,7 @@ export const Fill_Product = (req : any, res : any , next : any) => {
             // res.render ('Category' , {});
             
         } else {
-            return next (error);
+            return next (error);      
         }
     });
 

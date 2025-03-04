@@ -47,10 +47,10 @@ const Delete = (req, res, next) => {
 };
 exports.Delete = Delete;
 const Upload = (req, res, next) => {
-    let ID = req.body.ID_Category;
+    let ID_EDIT = Number(req.params.IDUPLOAD);
     let Name_Category = req.body.Name_Category;
-    let ID_Edit = req.body.ID_Edit;
-    SQL.Upload(ID, ID_Edit, Name_Category, (error, Result) => {
+    let ID_Category = req.body.ID_Category;
+    SQL.Upload(ID_EDIT, ID_Category, Name_Category, (error, Result) => {
         if (error)
             return next(error);
         res.send('Cập Nhật Danh Mục Thành Công');

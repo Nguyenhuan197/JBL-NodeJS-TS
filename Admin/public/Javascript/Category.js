@@ -25,7 +25,8 @@ class Loadding_API_Category {
                         Form_Views.innerHTML += `
                         <tr>
                             <td>${Index_Category}</td>
-                            <td>${element['Name']}</td>
+                            <td>${element['Danhmuccha']}</td>
+                            <td>${element['Danhmuccon']}</td>
                             <td><i value_Category=${Index_Category}  onclick="View_Upload_Category(this)" class="bi bi-pencil-square"></i></td>
                             <td><i onclick="Delete_Category(${element['ID']})" class="bi bi-x-lg"></i></td>
                         </tr>
@@ -63,7 +64,7 @@ let Trangthaichinhsưa = 'Views';
 (_a = document.querySelector(".Check_Form_Products")) === null || _a === void 0 ? void 0 : _a.addEventListener('submit', (Event) => {
     var _a, _b, _c, _d, _e;
     Event.preventDefault();
-    // Thêm mới sản phẩm
+    // Add Product
     if (Trangthaichinhsưa === 'Views') {
         let ID_Category = (_a = document.querySelector(".Page_Category")) === null || _a === void 0 ? void 0 : _a.value.trim();
         let Name_Category = (_b = document.querySelector(".ProductInput")) === null || _b === void 0 ? void 0 : _b.value.trim();
@@ -91,26 +92,25 @@ let Trangthaichinhsưa = 'Views';
             alert("Vui Lòng Nhập đủ Form");
         }
     }
-    // Sửa sản phẩm
+    // Edit Product
     else {
-        let ID_Category = (_c = document.querySelector(".Page_Category")) === null || _c === void 0 ? void 0 : _c.value.trim();
-        let Name_Category = (_d = document.querySelector(".ProductInput")) === null || _d === void 0 ? void 0 : _d.value.trim();
-        let ID_Edit = (_e = document.querySelector(".ID_UPLOAD")) === null || _e === void 0 ? void 0 : _e.value.trim();
+        let ID_Edit = (_c = document.querySelector(".ID_UPLOAD")) === null || _c === void 0 ? void 0 : _c.value.trim();
+        let ID_Category = (_d = document.querySelector(".Page_Category")) === null || _d === void 0 ? void 0 : _d.value.trim();
+        let Name_Category = (_e = document.querySelector(".ProductInput")) === null || _e === void 0 ? void 0 : _e.value.trim();
         if (ID_Category && Name_Category) {
-            fetch('/Category/Upload', {
-                method: 'POST',
+            fetch(`/Category/Upload/${ID_Edit}`, {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     ID_Category: ID_Category,
                     Name_Category: Name_Category,
-                    ID_Edit: ID_Edit
                 })
             })
                 .then(response => response.text())
                 .then(data => {
-                alert("Thành Công" + data);
+                alert(data);
                 window.location.href = '/Category';
             })
                 .catch(error => {

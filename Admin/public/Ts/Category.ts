@@ -15,7 +15,8 @@ class Loadding_API_Category {
                     Form_Views.innerHTML +=  `
                         <tr>
                             <td>${Index_Category}</td>
-                            <td>${element['Name']}</td>
+                            <td>${element['Danhmuccha']}</td>
+                            <td>${element['Danhmuccon']}</td>
                             <td><i value_Category=${Index_Category}  onclick="View_Upload_Category(this)" class="bi bi-pencil-square"></i></td>
                             <td><i onclick="Delete_Category(${element['ID']})" class="bi bi-x-lg"></i></td>
                         </tr>
@@ -65,7 +66,7 @@ let Trangthaichinhsưa : string = 'Views';
 document.querySelector (".Check_Form_Products")?.addEventListener ('submit', (Event) => {
     Event.preventDefault();
 
-    // Thêm mới sản phẩm
+    // Add Product
     if (Trangthaichinhsưa === 'Views'){
         let ID_Category : any = (document.querySelector (".Page_Category") as HTMLInputElement)?.value.trim();
         let Name_Category : any = (document.querySelector (".ProductInput") as HTMLInputElement)?.value.trim();
@@ -98,29 +99,28 @@ document.querySelector (".Check_Form_Products")?.addEventListener ('submit', (Ev
     }
 
 
-    // Sửa sản phẩm
+
+    // Edit Product
     else {
+        let ID_Edit : any = (document.querySelector (".ID_UPLOAD") as HTMLInputElement)?.value.trim();
         let ID_Category : any = (document.querySelector (".Page_Category") as HTMLInputElement)?.value.trim();
         let Name_Category : any = (document.querySelector (".ProductInput") as HTMLInputElement)?.value.trim();
-        let ID_Edit : any = (document.querySelector (".ID_UPLOAD") as HTMLInputElement)?.value.trim();
 
-    
         if (ID_Category && Name_Category){
-            fetch('/Category/Upload', {
-                method: 'POST',
+            fetch(`/Category/Upload/${ID_Edit}`, {
+                method: 'PUT',
                 headers: {
                   'Content-Type': 'application/json'
                 },              
                 body: JSON.stringify({
                     ID_Category : ID_Category,
                     Name_Category : Name_Category,
-                    ID_Edit : ID_Edit
                 })
               })   
           
             .then(response => response.text())  
             .then(data => {
-                alert ("Thành Công" + data);
+                alert (data);
                 window.location.href = '/Category';
             })   
         
@@ -132,16 +132,17 @@ document.querySelector (".Check_Form_Products")?.addEventListener ('submit', (Ev
             alert ("Vui Lòng Nhập đủ Form  sửa");    
         }
     }
-   
+
 
 });
+
+
+ 
 
     
 // View Edit 
 let View_Upload_Category = (Event : any) => {
     Trangthaichinhsưa = 'Capnhat';
-
-
     // Dom 
     let Index_Edit : number = Event.getAttribute ("value_Category");
     let Tile_Submit : any= document.querySelector ("#Title_Submit");
