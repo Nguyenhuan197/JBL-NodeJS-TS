@@ -21,8 +21,7 @@ const Loadding_Login = (req, res, next) => {
     if (!Email_Login || !Password_Login) {
         return res.status(400).json({ error: "Email và mật khẩu là bắt buộc!" });
     }
-    // Mã hóa AES-256-CBC
-    const algorithm = "aes-256-cbc";
+    const algorithm = "aes-256-cbc"; // Mã hóa AES-256-CBC
     const key = Buffer.from("0123456789abcdef0123456789abcdef"); // 32 bytes
     const iv = Buffer.from("abcdef9876543210"); // 16 bytes
     const MD5_Mahoa = (key) => {

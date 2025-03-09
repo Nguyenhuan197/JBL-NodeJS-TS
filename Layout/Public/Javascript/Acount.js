@@ -20,6 +20,7 @@ let API = window.location.href;
 let Loadding = new Loadding_API ();
 Loadding.Connect_API (API + '/API');
 
+
    
 const Views_API = (Data) => {   
     let Value_SQL = Data.SQL_Inpomation;
@@ -38,12 +39,11 @@ const Views_API = (Data) => {
             <input type="file" id="Up_IMG">
         </div>
         <span class="Text_">Dung lượng tối đa là 1MB Định dạng ...PNG...JPEG</span>
-    `;
+    `;     
 
     document.querySelector (".Form_Check").innerHTML += `
         <form id="Update_Json">
-
-                <input type="hidden" id="ID_USER" value="${Value_SQL[0]['ID_USER']}">
+            <input type="hidden" id="ID_USER" value="${Value_SQL[0]['ID_USER']}">
 
             <label for="Check_Name">Name</label><br>
             <input type="text" name="Check_Name" value="${Value_SQL[0]['Name']}" class="Check_Name"><br><br>
@@ -55,8 +55,7 @@ const Views_API = (Data) => {
             <input type="text" name="Check_Number_Phone"  value="${Value_SQL[0]['SĐT']}" class="Check_Count_Call"><br><br>
 
             <label for="Check_Birthday">Birthday</label><br>
-            <input type="date" name="Check_Birthday"  value="" class="Check_Birthday"><br><br>
-            
+            <input type="date" name="Check_Birthday" class="Birthday"  value="" class="Check_Birthday"><br><br>
            
 
             <div class="Check_Cyty">
@@ -85,34 +84,42 @@ const Views_API = (Data) => {
             </div>
 
             <div class="Up"><button type="submit" >Cập Nhật</button></div>
-            <div class="Delete_User">Delete User</div>
+           
         </form>
+
+        <div class="Delete_User" id="DELETE_ACOUNT">Delete User</div>
     `;
 
+
+
+
+    document.getElementById("Address_Detail").value = Value_SQL[0]['DC_CUTHE'];
+    // Dịnh dạng ngày sinh
+    let birthDate = new Date(Value_SQL[0]['Birthday']);
+    let formattedDate = birthDate.toISOString().slice(0, 10);
+    document.querySelector(".Birthday").value = formattedDate;
 
     document.querySelector ("#Update_Json").addEventListener ('submit', (Event) => {
         Event.preventDefault ();
         let ID = document.querySelector ("#ID_USER").value;
-        let Name = document.querySelector (".Check_Name").value;
-        let Email = document.querySelector (".Check_Mail").value;
-        let SDT = document.querySelector (".Check_Count_Call").value;
+        let Name = document.querySelector (".Check_Name").value.trim();
+        let Email = document.querySelector (".Check_Mail").value.replace(/\s+/g, '');
+        let SDT = document.querySelector (".Check_Count_Call").value.replace(/\s+/g, '');
+        let Birthday = document.querySelector (".Birthday").value;
         let Thanhpho = document.querySelector ("#City").value;
         let Quan_Huyen = document.querySelector ("#District").value;
         let Phuongthixa = document.querySelector ("#Ward_town").value;
-        let Diachithem  = document.querySelector ("#Address_Detail").value;
-
+        let Diachithem  = document.querySelector ("#Address_Detail").value.trim();
 
         fetch('/Acount/Upload', {
             method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },   
-
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                ID : ID,
-                Name : Name,
-                Email: Email,
-                SDT : SDT,
+                ID : ID.trim(),
+                Name : Name.trim(),
+                Email: Email.trim(),
+                SDT : SDT.trim(),
+                Birthday : Birthday,
                 Thanhpho : Thanhpho,
                 Quan_Huyen : Quan_Huyen,
                 Phuongthixa : Phuongthixa,
@@ -120,22 +127,43 @@ const Views_API = (Data) => {
             })
         })   
 
-
+  
         .then(response => response.text())
         .then(data => {
-            alert ('Đăng Nhập Thành Công');
+            alert ('Cập Nhật Thành Công');
             window.location.href = '/Acount';
         })
         .catch(error => {
             console.error("Có lỗi xảy ra: " + error);
         });
+    });
+    
+    // DELETE Acount
+    document.querySelector ("#DELETE_ACOUNT").addEventListener ('click', () => {
+        let ID_USER = document.cookie.match(new RegExp('(^| )' + 'USER_TRUE' + '=([^;]+)'));
+        if (!ID_USER[2]) return alert ('Tài Khoản Không Tồn Tại');
 
+        fetch('/Acount/Delete', {
+            method: "DELETE",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ ID : ID_USER[2]})
+        })      
 
+        .then(response => response.text())
+        .then(data => {
+            if (data != 'True') return alert ('Xóa Tài Khoản Thất Bại');
+            document.cookie = 'USER_TRUE' + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+            localStorage.removeItem ("token");
+            alert ('Xóa Tài Khoản Thành Công');
+            window.location.href = '/';
+        })
 
+        .catch(error => {
+            console.error("Có lỗi xảy ra: " + error);
+        });
 
     });
+
 }
-
-
 
 

@@ -18,7 +18,7 @@ const Login_Rigister = (req, res, next) => {
     const algorithm = 'aes-256-cbc';
     const key = Buffer.from('0123456789abcdef0123456789abcdef'); // 32 ký tự
     const iv = Buffer.from('abcdef9876543210'); // 16 ký tự
-    // Hàm mã hóa
+    // Hàm mã hóa     
     const encrypt = (text) => {
         const cipher = crypto.createCipheriv(algorithm, key, iv);
         let encrypted = cipher.update(text, 'utf8', 'hex');
@@ -32,9 +32,9 @@ const Login_Rigister = (req, res, next) => {
         SQL_Register.Check_Register(Email, KQ_MD5_Pasword, (error, result) => {
             if (error)
                 return next(error);
-            let ID_USER = result[0]['ID_USER'];
+            let ID_USER = result[0]['ID'];
             res.cookie('USER_TRUE', ID_USER, { maxAge: 6000000, path: '/' });
-            res.send('Thành Công');
+            res.send('true');
         });
     });
 };

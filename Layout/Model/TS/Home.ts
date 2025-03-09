@@ -18,7 +18,7 @@ class Home {
             if (error){
                 Callback (error , null);
             } else {
-                Callback (null , Result);
+                Callback (null , Result);  
             }
         });
     }

@@ -143,8 +143,8 @@ window.onload = () => {
 };
 // Edỉt - Upload
 (_a = document.getElementById("Upload_Product")) === null || _a === void 0 ? void 0 : _a.addEventListener("submit", function (e) {
+    var _a, _b, _c, _d;
     return __awaiter(this, void 0, void 0, function* () {
-        var _a, _b, _c, _d;
         e.preventDefault();
         let formData = new FormData();
         let fileInput = document.getElementById("IMG_News");
@@ -179,8 +179,8 @@ window.onload = () => {
 });
 // ADD Product
 (_b = document.getElementById("Add_Product")) === null || _b === void 0 ? void 0 : _b.addEventListener("submit", function (e) {
+    var _a, _b, _c, _d;
     return __awaiter(this, void 0, void 0, function* () {
-        var _a, _b, _c, _d;
         e.preventDefault();
         let formData = new FormData();
         let fileInput = document.getElementById("IMG_ADD");

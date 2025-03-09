@@ -12,27 +12,22 @@ class Database_Register {
             VALUES (? , ? , ? , ?)
         `;
             Db_1.default.query(Query_Add_User, [1, Name, Email, Password], (error, Result) => {
-                if (error) {
-                    Callback(error, null);
-                }
-                else {
-                    Callback(null, { Name: Name, Email: Email });
-                }
+                if (error)
+                    return Callback(error, null);
+                Callback(null, { Name: Name, Email: Email });
             });
         };
         this.Check_Register = (Email, Password, Callback) => {
-            let Query_Login = `SELECT nguoidung.id AS ID_USER
+            let Query_Login = `SELECT nguoidung.id AS ID
             FROM nguoidung
             WHERE nguoidung.Email = ?
             AND  nguoidung.Matkhau = ?
+            AND nguoidung.Trangthaitaikhoan = 2
         `;
             Db_1.default.query(Query_Login, [Email, Password], (error, Result) => {
-                if (error) {
-                    Callback(error, null);
-                }
-                else {
-                    Callback(null, Result);
-                }
+                if (error)
+                    return Callback(error, null);
+                Callback(null, Result);
             });
         };
     }

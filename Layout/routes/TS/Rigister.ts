@@ -6,6 +6,6 @@ const {
 } = require ('../Controllers/Rigister');
 
    
-Router_Rigister.get('/', View_Rigister_Router);
-Router_Rigister.post('/ADD_Form_Register', Login_Rigister);
+Router_Rigister.get ('/', View_Rigister_Router);
+Router_Rigister.post ('/ADD_Form_Register', Login_Rigister);
 module.exports = Router_Rigister;

@@ -19,7 +19,7 @@ export const Login_Rigister = (req: any, res: any, next: any) => {
     const iv = Buffer.from('abcdef9876543210'); // 16 ký tự
 
     
-    // Hàm mã hóa
+    // Hàm mã hóa     
     const encrypt = (text : string) => {
         const cipher = crypto.createCipheriv(algorithm, key, iv);
         let encrypted = cipher.update(text, 'utf8', 'hex');
@@ -27,16 +27,15 @@ export const Login_Rigister = (req: any, res: any, next: any) => {
             return encrypted;
     }
 
-    
-
     let KQ_MD5_Pasword : any = encrypt(Password);
     SQL_Register.Save_Register(Name, Email, KQ_MD5_Pasword, (error: string, Result: any) => {
-        if (error)  return next(error);
+        if (error) return next(error);
+        
         SQL_Register.Check_Register(Email, KQ_MD5_Pasword , (error: string, result: any) => {
             if (error) return next (error);
-            let ID_USER: any = result[0]['ID_USER'];
+            let ID_USER = result[0]['ID'];
             res.cookie('USER_TRUE', ID_USER , { maxAge: 6000000, path: '/' });
-            res.send ('Thành Công');
+            res.send ('true');   
         });
     });
 };

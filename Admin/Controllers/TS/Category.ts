@@ -31,8 +31,8 @@ export const Add = (req: Request, res: Response, next: NextFunction) => {
         if (error) return next (error);
         res.send ('Thêm Danh Mục Thành Công');
     });
-}
-   
+}   
+      
 
 export const Delete = (req: Request, res: Response, next: NextFunction) => {
     let ID : number = parseInt(req.params.ID);
@@ -40,8 +40,8 @@ export const Delete = (req: Request, res: Response, next: NextFunction) => {
         if (error) return next (error);
         res.send ('Xóa Danh Mục Thành Công');
     });
-}
-    
+}    
+         
 
 export const Upload = (req: Request, res: Response, next: NextFunction) => {
     let ID_EDIT : number = Number(req.params.IDUPLOAD);
@@ -53,4 +53,6 @@ export const Upload = (req: Request, res: Response, next: NextFunction) => {
         res.send ('Cập Nhật Danh Mục Thành Công');
     });
 }
+
+
 

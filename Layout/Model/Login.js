@@ -7,19 +7,20 @@ const Db_1 = __importDefault(require("../SQL/Db"));
 class Database_Login {
     constructor() {
         this.Login = (Email, Password, Callback) => {
-            let Query = `SELECT nguoidung.id AS ID_USER
+            let Query = `SELECT 
+            nguoidung.id AS ID,
+            nguoidung.Ten AS Name,
+            nguoidung.Email AS Email
+
             FROM nguoidung
-            WHERE nguoidung.Quen = ?
-                AND nguoidung.Email = ?
+            WHERE nguoidung.Email = ?
                 AND nguoidung.Matkhau = ?
+                AND nguoidung.Trangthaitaikhoan = 2
         `;
-            Db_1.default.query(Query, [1, Email, Password], (error, Result) => {
-                if (error) {
-                    Callback(error, null);
-                }
-                else {
-                    Callback(null, Result);
-                }
+            Db_1.default.query(Query, [Email, Password], (error, Result) => {
+                if (error)
+                    return Callback(error, null);
+                Callback(null, Result);
             });
         };
     }

@@ -1,4 +1,15 @@
 
+
+
+
+  
+
+
+// ---------------------------------------------------------------------------------------------------
+
+
+
+
 console.log ('Test');
 
 let Check_Status_Login_False = document.querySelector ("#Check_Status_Login_False");
@@ -11,6 +22,8 @@ let Check_Status_Login_True = document.querySelector ("#Check_Status_Login_True"
 // }
 
 
+
+// Get Token
 let Check_Token = () => {
     const Token = localStorage.getItem('token');
     if (!Token) return false;
@@ -21,8 +34,9 @@ let Check_Token = () => {
     })
     
     .then(response => response.json())
-    .then(data => {
-        console.log('Dữ liệu Token:', data);
+    .then(SQL => {
+        console.log(SQL.data);
+        console.log(SQL.data.ID);
         View_Header (true);
     })
 
@@ -34,6 +48,10 @@ let Check_Token = () => {
 
 
 
+
+
+
+// View Token
 let View_Header = (Check_Views) => {
     if (Check_Views){
         Check_Status_Login_True.style.display = "block";
