@@ -26,40 +26,40 @@ class Loadding_API_USER {
     }
 }
 let View_Product_API_USER = (Data) => {
-    console.log(Data);
-    let View_User = (document.querySelector(".Box_Body_Conten"));
-    let Name_Power, ID_Power;
-    Data.forEach(element => {
+    let View_User = (document.querySelector("#productList"));
+    let Name_Power, Status_User;
+    Data.forEach((element, Index) => {
         Name_Power = element['Power'] == 1 ? 'khách hàng' : 'Admin';
+        Status_User = element['Status_User'] == 1 ? 'Dừng Hoạt Động' : 'Đăng Hoạt Động';
         View_User.innerHTML += `
-            <div class="Box">
-                <img class="Cover" src="img/hình nền.png" alt="Cover Image">
-                <div class="Content">
-                    <img class="Avatar" src="${element['IMG']}" alt="Avatar Image">
-                    <h2 class="Title" ><a href="#"  style="text-decoration: none;color: red;">${element['Name']}</a></h2>
-
-                    <div style="font-size: 12px;">
-                        <span>ID : ${element['ID']}</span><br><br>
-                        <span>Email : ${element['Email']}</span><br><br>
-                        <span>Phone : ${element['SDT']}</span><br><br>
-                    </div>
-
-                       
-                        <span>Quền truy cập : ${Name_Power}</span><br><br>
-                        <select name="" class="mySelect" onchange="Phanquen(${element['ID']})">
-                            <option value="${element['Power']}">${Name_Power}</option>
-                            <option value="1">Khách Hàng</option>
-                            <option value="2">Admin</option>
-                        </select><br><br>
-
-                        <span  onclick="Delete_Power(${element['ID']})" style="color: red; font-size: 12px; font-weight: bold;"> Xóa Tài Khoản</span>
-                </div>
-            </div>
+            <tr>
+                <td>${Index}</td>
+                <td>${element['ID']}</td>
+                <td><img class="Avatar" src="${element['IMG']}" alt="Avatar Image"></td>
+                <td>${element['Name']}</td>
+                <td> ${element['Email']}</td>
+                <td>${element['SDT']}</td>
+                <td>
+                    <select name="" class="mySelect" onchange="Phanquen(${element['ID']})">
+                        <option value="${element['Power']}">${Name_Power}</option>
+                        <option value="1">Khách Hàng</option>
+                        <option value="2">Admin</option>
+                    </select><br><br>
+                </td>
+                 <td>
+                    <select name="" class="mySelect" onchange="Status_User(${element['ID']})">
+                        <option value="${element['Status_User']}">${Status_User}</option>
+                        <option value="2">Hoạt Động</option>
+                        <option value="1">Dừng Hoạt Động</option>
+                    </select><br><br>
+                </td>
+                <td><i class="bi bi-x"></i></td>
+            </tr>
         `;
         Name_Power = '';
     });
 };
-const Phanquen = (Element) => {
+let Phanquen = (Element) => {
     let Values_Power = document.querySelector(".mySelect").value;
     let ID_Edit = Element;
     fetch('/User/EDIT_Power', {
@@ -81,7 +81,7 @@ const Phanquen = (Element) => {
         console.error('Error:', error);
     });
 };
-const Delete_Power = (Element) => {
+let Delete_Power = (Element) => {
     if (Element) {
         fetch(`/User/${Element}`, {
             method: 'DELETE'

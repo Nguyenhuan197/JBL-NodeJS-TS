@@ -6,8 +6,8 @@ let SQL: any = new Home();
 // View route handler
 export const Views = (req: Request, res: Response, next: NextFunction) => {
     res.render('Home', {});
-};
-
+}; 
+   
 
 // API route handler
 export const Loadding_API = (req: Request, res: Response, next: NextFunction) => {

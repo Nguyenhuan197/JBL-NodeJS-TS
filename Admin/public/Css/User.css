@@ -1,59 +1,62 @@
-/* Phần container chính của Box_Body_Conten */
 .Box_Body_Conten {
-    width: 100%;
-    height: 88%;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: rgb(230, 230, 230);
-    overflow-y: auto; /* Enable vertical scrolling if content is too long */
-    display: flex;
-    flex-wrap: wrap; /* Enable wrapping of boxes */
-    gap: 20px; /* Khoảng cách giữa các Box */
+    top: 20px;
+    width: 95%;
+    height: 78vh;
+    margin: auto;
+    overflow: hidden;
+    padding: 10px;
 }
 
-/* Định dạng các Box */
-.Box {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+.Box_Body_Conten table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;  
+    overflow: hidden;
+}
+
+.Box_Body_Conten thead {
+    background-color: tomato; /* Màu đỏ nhạt */
+    color: white;
+}
+
+.Box_Body_Conten th, 
+.Box_Body_Conten td {
+    padding: 12px;
     text-align: center;
-    width: 100%; /* Ensure box takes full width of container */
-    max-width: 300px; /* Set a max-width for boxes */
-    flex: 1 1 calc(33.33% - 20px); /* Make boxes responsive and wrap */
-    box-sizing: border-box; /* Ensure padding and border are included in width */
-    overflow: hidden; /* Prevent overflow issues */
+    border-bottom: 1px solid #ddd;
 }
 
-/* Định dạng ảnh bìa */
-.Box .Cover {
-    width: 100%;
-    height: 90px; /* Set a fixed height for the cover image */
-    object-fit: cover; /* Ensure the cover image covers the box width */
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+.Box_Body_Conten tbody tr:hover {
+    background-color: #e0e0e0; /* Màu đỏ nhạt khi hover */
 }
 
-/* Nội dung trong box */
-.Box .Content {
-    padding: 20px;
-}
 
-/* Định dạng ảnh đại diện */
-.Box .Avatar {
-    width: 80px;
-    height: 80px;
+.Box_Body_Conten img {
+    width: 50px; /* Kích thước ảnh nhỏ */
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
-    margin-top: -40px; /* Pull the avatar up to overlap with the cover */
-    border: 3px solid #fff; /* Add a border to the avatar */
+    border: 2px solid white;
 }
 
-/* Định dạng tiêu đề trong box */
-.Box .Title {
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
+/* ✅ Tạo thanh cuộn nếu danh sách dài */
+.Box_Body_Conten {
+    max-height: 97vh;
+    overflow-y: auto;
+}
+
+.Box_Body_Conten select {
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.Box_Body_Conten td i {
+    color: red;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.Box_Body_Conten td i:hover {
+    color: darkred;
 }

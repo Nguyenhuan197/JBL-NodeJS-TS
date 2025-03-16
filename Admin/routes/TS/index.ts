@@ -7,4 +7,4 @@ router.get('/' ,Loadding.Views );
 router.post ('/Login' ,Loadding.Loadding_Login);
 router.post ('/AddToken' ,Loadding.Save_Token);
 router.post ('/CheckToken' , Loadding.CheckToken);
-module.exports = router;     
+module.exports = router;             

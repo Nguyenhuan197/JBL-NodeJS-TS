@@ -13,7 +13,8 @@ class USER_Model {
             nguoidung.Quen AS Power,
             nguoidung.IMG AS IMG,
             nguoidung.SĐT AS SDT,
-            nguoidung.Email AS Email
+            nguoidung.Email AS Email,
+            nguoidung.Trangthaitaikhoan AS Status_User
                 FROM nguoidung
         `;
             Db_1.default.query(QUERY_Data, (error, Result) => {
